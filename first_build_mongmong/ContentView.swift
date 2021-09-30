@@ -6,8 +6,11 @@
  //
  
  import SwiftUI
+ import AVKit
  
  struct ContentView: View {
+    @State var audioPlayer: AVAudioPlayer!
+    
     @State var currentTime = Time(ns: 0, sec: 0, min: 0, hr: 0)
     @State var receiver = Timer.publish(every: 0.2, on: .current, in: .default).autoconnect()
     @State var secondReceiver = Timer.publish(every: 0.02, on: .current, in: .default).autoconnect()
@@ -123,6 +126,14 @@
             }
             .zIndex(2)
 
+        }
+        
+        //make the background audio
+        .onAppear {
+            let sound = Bundle.main.path(forResource: "wave", ofType: "mp3")
+            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            self.audioPlayer.volume = 0.8
+            self.audioPlayer.play()
         }
         
         .onReceive(receiver, perform: { _ in
