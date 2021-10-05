@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD28A63D2706DA990057E01F /* watch_scene_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28A63C2706DA990057E01F /* watch_scene_1.swift */; };
 		DD2A6FBB270442C50036889D /* wave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2A6FBA270442C50036889D /* wave.mp3 */; };
 		DD93406E26E9DCA70099A19F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93406D26E9DCA70099A19F /* AppDelegate.swift */; };
 		DD93407026E9DCA70099A19F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93406F26E9DCA70099A19F /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD28A63C2706DA990057E01F /* watch_scene_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watch_scene_1.swift; sourceTree = "<group>"; };
 		DD2A6FBA270442C50036889D /* wave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wave.mp3; sourceTree = "<group>"; };
 		DD93406A26E9DCA70099A19F /* first_build_mongmong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = first_build_mongmong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD93406D26E9DCA70099A19F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD28A63E270BDE260057E01F /* Bgm */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A6FBA270442C50036889D /* wave.mp3 */,
+			);
+			path = Bgm;
+			sourceTree = "<group>";
+		};
 		DD93406126E9DCA70099A19F = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +113,7 @@
 		DD93406C26E9DCA70099A19F /* first_build_mongmong */ = {
 			isa = PBXGroup;
 			children = (
-				DD2A6FBA270442C50036889D /* wave.mp3 */,
+				DD28A63E270BDE260057E01F /* Bgm */,
 				DD9340A226E9F6D90099A19F /* time.swift */,
 				DD93406D26E9DCA70099A19F /* AppDelegate.swift */,
 				DD93406F26E9DCA70099A19F /* SceneDelegate.swift */,
@@ -112,6 +122,7 @@
 				DD93407826E9DCA90099A19F /* LaunchScreen.storyboard */,
 				DD93407B26E9DCA90099A19F /* Info.plist */,
 				DD93407526E9DCA90099A19F /* Preview Content */,
+				DD28A63C2706DA990057E01F /* watch_scene_1.swift */,
 			);
 			path = first_build_mongmong;
 			sourceTree = "<group>";
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD93406E26E9DCA70099A19F /* AppDelegate.swift in Sources */,
+				DD28A63D2706DA990057E01F /* watch_scene_1.swift in Sources */,
 				DD93407026E9DCA70099A19F /* SceneDelegate.swift in Sources */,
 				DD9340A326E9F6D90099A19F /* time.swift in Sources */,
 				DD93407226E9DCA70099A19F /* ContentView.swift in Sources */,
