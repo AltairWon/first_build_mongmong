@@ -24,7 +24,7 @@ struct Watch3: View {
     @State var surferX: CGFloat = -15
 
     @State var personX: CGFloat = -80
-    @State var personY: CGFloat = 60
+    @State var personY: CGFloat = 250
 
     @State var seagullX: CGFloat = -50
     @State var seagullY: CGFloat = -50
@@ -50,38 +50,39 @@ struct Watch3: View {
 
     var body: some View {
         ZStack {
-
+            
             // Main clock
             Image("watch3_background")
-                .scaleEffect(0.5)
-                .offset(y: 15)
+                .scaleEffect(0.35)
+                .offset(y: -70)
                 .zIndex(0.1)
-
+            
             Image("watch3_hour\(hourIndex)")
-                .scaleEffect(0.4)
-                .offset(y: -25)
+                .offset(x: -200, y: -200)
+                .scaleEffect(0.25)
                 .rotationEffect(.init(degrees: currentTime.hrAngle()))
-                .offset(y: 20)
+                .offset(y: -15)
                 .zIndex(0.1)
-
-                Image("watch3_minute\(minuteIndex)")
-                    .scaleEffect(0.4)
-                    .offset(x: -5, y: -50)
-                    .rotationEffect(.init(degrees: currentTime.minAngle()))
-                    .offset(y: 20)
-                    .zIndex(0.1)
-
-                Image("surfer\(surferIndex)")
-                    .scaleEffect(0.5)
-                    .rotationEffect(.init(degrees: -90))
-                    .offset(x: surferX)
-                    .offset(x: -5, y: -50)
-                    .rotationEffect(.init(degrees: currentTime.minAngle()))
-                    .offset(y: 20)
-                    .zIndex(0.3)
+            
+            Image("watch3_minute\(minuteIndex)")
+                .offset(x: 250, y: -350)
+                .scaleEffect(0.25)
+                .rotationEffect(.init(degrees: currentTime.minAngle()))
+//                .offset(y: -15)
+                .opacity(0.4)
+                .zIndex(0.1)
+            
+            Image("surfer\(surferIndex)")
+                .scaleEffect(0.3)
+                .rotationEffect(.init(degrees: -90))
+                .offset(x: surferX)
+                .offset(x: -5, y: -50)
+                .rotationEffect(.init(degrees: currentTime.minAngle()))
+                .offset(y: 20)
+                .zIndex(0.3)
 
             Image("person")
-                .scaleEffect(0.5)
+                .scaleEffect(0.3)
                 .offset(x: personX, y: personY)
                 .zIndex(0.2)
 
@@ -92,13 +93,13 @@ struct Watch3: View {
                 .zIndex(0.4)
 
             Image("tube")
-                .scaleEffect(0.5)
+                .scaleEffect(0.3)
                 .rotationEffect(.init(degrees: 90+tubeD))
                 .offset(x: tubeX, y: tubeY + 15)
                 .zIndex(0.4)
 
             Image("ball")
-                .scaleEffect(isAnimated ? 3 : 0.2)
+                .scaleEffect(isAnimated ? 6 : 0.3)
                 .animation(animation)
                 .offset(x: ballX, y: ballY)
                 .zIndex(0.9)
@@ -115,7 +116,7 @@ struct Watch3: View {
             let sound = Bundle.main.path(forResource: "surfing", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             self.audioPlayer.volume = 0.8
-            self.audioPlayer.play()
+//            self.audioPlayer.play()
         }
         
         .onReceive(receiver, perform: { _ in
@@ -152,9 +153,9 @@ struct Watch3: View {
             let tenSecondRemainder = (secondInMili+2500) % 10000
 
             if tenSecondRemainder < 5000 {
-                personY = 60 + 40/5000*CGFloat(tenSecondRemainder)
+                personY = 250 + 40/5000*CGFloat(tenSecondRemainder)
             } else {
-                personY = 100 - 40/5000*CGFloat(tenSecondRemainder-5000)
+                personY = 290 - 40/5000*CGFloat(tenSecondRemainder-5000)
             }
 
             if distance(x: seagullX, y: seagullY) > 150 {

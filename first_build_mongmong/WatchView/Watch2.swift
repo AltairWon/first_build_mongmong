@@ -59,41 +59,41 @@ struct Watch2: View {
                 .zIndex(0.2)
             
             Image("watch2_hour")
-                .offset(y: -55)
+                .offset(y: -40)
                 .scaleEffect(0.5)
                 .rotationEffect(.init(degrees: currentTime.hrAngle()))
-                .zIndex(2.1)
-                .offset(x: -5,y: 10)
+                .zIndex(0.8)
+                .offset(y: 15)
         
             Image("watch2_min-1")
                 .offset(y: -30)
-                .scaleEffect(0.38)
+                .scaleEffect(0.32)
                 .rotationEffect(.init(degrees: currentTime.minAngle()))
                 .zIndex(2)
-                .offset(x: -5, y: 10)
+                .offset(y: 10)
                 .opacity(branchOpacity)
 
             Image("watch2_min-2")
                 .offset(y: -55)
-                .scaleEffect(0.38)
+                .scaleEffect(0.32)
                 .rotationEffect(.init(degrees: currentTime.minAngle()))
                 .zIndex(2)
-                .offset(x: -1, y: 8)
+                .offset(y: 8)
                 .opacity(branchOpacity)
 
             Image("watch2_min-3")
-                .offset(y: -130)
-                .scaleEffect(0.38)
+                .offset(y: -150)
+                .scaleEffect(0.32)
                 .rotationEffect(.init(degrees: currentTime.minAngle()))
                 .zIndex(2)
-                .offset(x: -2, y: 10)
+                .offset(y: 10)
                 .opacity(branchOpacity)
             
             //mushroom Image
             Image("mushroom-\(mushroomIndex)")
                 .offset(x: mushroomX, y: mushroomY)
                 .scaleEffect(0.5)
-                .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+                .zIndex(1.0)
                 .opacity(mushroomOn ? 0 : 1)
             
             //bird Image
@@ -111,7 +111,7 @@ struct Watch2: View {
             let sound = Bundle.main.path(forResource: "bird", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             self.audioPlayer.volume = 0.8
-            self.audioPlayer.play()
+//            self.audioPlayer.play()
         }
         
         .onReceive(receiver, perform: { _ in

@@ -133,7 +133,7 @@ struct Watch1: View {
             let sound = Bundle.main.path(forResource: "wave", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             self.audioPlayer.volume = 0.8
-            self.audioPlayer.play()
+            //self.audioPlayer.play()
         }
 
         .onReceive(receiver, perform: { _ in
