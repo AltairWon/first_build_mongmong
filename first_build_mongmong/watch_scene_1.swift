@@ -25,10 +25,10 @@ struct watch_scene_1: View {
 
     // Carb and turtle var
     @State var crabOpacity: Double = 0
-    @State var crabX: CGFloat = -170
+    @State var crabX: CGFloat = -450
     @State var crabIndex: Int = 0
     @State var turtleOpacity: Double = 0
-    @State var turtleX: CGFloat = -150
+    @State var turtleX: CGFloat = -200
     @State var turtleIndex: Int = 0
 
     // Fish var
@@ -66,6 +66,7 @@ struct watch_scene_1: View {
 
                 Image("wave_shadow")
                     .scaleEffect(x: 0.5, y: 0.33)
+                    .offset(y: -150)
                     .opacity(shadowOpacity)
                     .zIndex(0.2)
 
@@ -79,7 +80,7 @@ struct watch_scene_1: View {
 
                 Image("crab\(crabIndex)")
                     .scaleEffect(0.3)
-                    .offset(x: crabX, y: 350)
+                    .offset(x: crabX, y: 200)
                     .opacity(crabOpacity)
                     .zIndex(6)
 
@@ -101,27 +102,27 @@ struct watch_scene_1: View {
                 //the position of the image will be different if the orientation is portrait or landscape
                 Image("clam_1_\(clamIndex)")
                     .scaleEffect(0.3)
-                    .offset(x: 150, y: 250)
+                    .offset(x: 250, y: 150)
                 
                 Image("clam2")
                     .scaleEffect(0.4)
-                    .offset(x: 125, y: 200)
+                    .offset(x: 225, y: 100)
                 
                 Image("starfish_\(starfishIndex)")
                     .scaleEffect(0.7)
-                    .offset(x: 100, y: 220)
+                    .offset(x: 200, y: 120)
             }
             .zIndex(0.7)
 
             ZStack {
                 Image("footstep")
                     .scaleEffect(0.23)
-                    .offset(x: -100, y: 150)
+                    .offset(x: -350, y: 50)
                     .opacity(stepOpacity)
 
                 Image("footstep")
                     .scaleEffect(0.23)
-                    .offset(x: -70, y: 250)
+                    .offset(x: -250, y: 150)
                     .opacity(stepOpacity2)
             }
             .zIndex(2)
@@ -133,7 +134,7 @@ struct watch_scene_1: View {
             let sound = Bundle.main.path(forResource: "wave", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             self.audioPlayer.volume = 0.8
-            self.audioPlayer.play()
+//            self.audioPlayer.play()
         }
         
         .onReceive(receiver, perform: { _ in
@@ -154,11 +155,11 @@ struct watch_scene_1: View {
             let secondInMili = currentTime.secondInMili()
 
             if secondInMili < 5000 {
-                waveY = -650 + 550.0/5000*CGFloat(secondInMili)
+                waveY = -650 + 350.0/5000*CGFloat(secondInMili)
             } else if secondInMili < 10000 {
-                waveY = -100
+                waveY = -300
             } else if secondInMili < 15000 {
-                waveY = -100 - 550.0/5000*CGFloat(secondInMili-10000)
+                waveY = -300 - 350.0/5000*CGFloat(secondInMili-10000)
             } else {
                 waveY = -650
             }
@@ -177,23 +178,23 @@ struct watch_scene_1: View {
             }
 
             if secondInMili < 2500 {
-                crabX = -150
+                crabX = -450
             } else if secondInMili < 12500 {
-                crabX = -150 + 450/10000*CGFloat(secondInMili-2500)
+                crabX = -450 + 1000/10000*CGFloat(secondInMili-2500)
             } else {
                 crabX = 100
             }
 
             if secondInMili < 15000 {
                 turtleOpacity = 0
-            } else {
+            } else if secondInMili < 5000 {
                 turtleOpacity    = 1
             }
 
             if secondInMili < 15000 {
-                turtleX = -150
+                turtleX = -300
             } else {
-                turtleX = -150 + 450.0/45000*CGFloat(secondInMili-15000)
+                turtleX = -300 + 500.0/45000*CGFloat(secondInMili-15000)
             }
 
             if secondInMili < 20000 {
