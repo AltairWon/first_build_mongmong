@@ -1,14 +1,14 @@
 //
-//  watch_scene_1.swift
+//  Watch1.swift
 //  first_build_mongmong
 //
-//  Created by HyokJun Won on 2021/10/01.
+//  Created by HyokJun Won on 2021/10/06.
 //
 
 import SwiftUI
 import AVKit
 
-struct watch_scene_1: View {
+struct Watch1: View {
     @State var audioPlayer: AVAudioPlayer!
     
     @State var currentTime = Time(ns: 0, sec: 0, min: 0, hr: 0)
@@ -28,7 +28,7 @@ struct watch_scene_1: View {
     @State var crabX: CGFloat = -450
     @State var crabIndex: Int = 0
     @State var turtleOpacity: Double = 0
-    @State var turtleX: CGFloat = -200
+    @State var turtleX: CGFloat = -300
     @State var turtleIndex: Int = 0
 
     // Fish var
@@ -54,7 +54,7 @@ struct watch_scene_1: View {
             Group {
                 
                 // Main clock
-                Image("watch4_background")
+                Image("watch1_background")
                     .scaleEffect(0.40)
                     .offset(y: 15)
                     .zIndex(0.1)
@@ -70,7 +70,7 @@ struct watch_scene_1: View {
                     .opacity(shadowOpacity)
                     .zIndex(0.2)
 
-                Image("watch4_minute")
+                Image("watch1_minute")
                     .offset(y: -150)
                     .scaleEffect(0.32)
                     .rotationEffect(.init(degrees: currentTime.minAngle()))
@@ -128,15 +128,14 @@ struct watch_scene_1: View {
             .zIndex(2)
 
         }
-        
         //make the background audio
         .onAppear {
             let sound = Bundle.main.path(forResource: "wave", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             self.audioPlayer.volume = 0.8
-//            self.audioPlayer.play()
+            self.audioPlayer.play()
         }
-        
+
         .onReceive(receiver, perform: { _ in
             let calendar = Calendar.current
 
@@ -187,8 +186,8 @@ struct watch_scene_1: View {
 
             if secondInMili < 15000 {
                 turtleOpacity = 0
-            } else if secondInMili < 5000 {
-                turtleOpacity    = 1
+            } else {
+                turtleOpacity = 1
             }
 
             if secondInMili < 15000 {
@@ -245,4 +244,3 @@ struct watch_scene_1: View {
         }
     }
 }
-
