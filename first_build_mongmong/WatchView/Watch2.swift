@@ -13,7 +13,7 @@ struct Watch2: View {
 
     @State var currentTime = Time(ns: 0, sec: 0, min: 0, hr: 0)
     @State var receiver = Timer.publish(every: 0.2, on: .current, in: .default).autoconnect()
-    @State var secondReceiver = Timer.publish(every: 0.3, on: .current, in: .default).autoconnect()
+    @State var secondReceiver = Timer.publish(every: 0.05, on: .current, in: .default).autoconnect()
     @State var thirdReceiver = Timer.publish(every: 0.4, on: .current, in: .default).autoconnect()
 
     //branch minute var
@@ -33,21 +33,20 @@ struct Watch2: View {
     //let mushroomIndex = Int.getUniqueRandomNumbers(min: 1, max: 3, count: 100)
     
     //bird var
-    @State var bird1X: CGFloat = 0
-    @State var bird1Y: CGFloat = 50
+    @State var bird1X: CGFloat = -50
+    @State var bird1Y: CGFloat = -50
     
-    @State var bird2X: CGFloat = 200
-    @State var bird2Y: CGFloat = 200
+    @State var bird2X: CGFloat = -350
+    @State var bird2Y: CGFloat = -150
     
-    @State var bird3X: CGFloat = 400
-    @State var bird3Y: CGFloat = 400
+    @State var bird3X: CGFloat = -150
+    @State var bird3Y: CGFloat = -250
     
-    @State var birdID: Double = 0
-    let birdIndex = Int.random(in: 1...3)
+    @State var bird1ID: Double = 0
+    @State var bird2ID: Double = 0
+    @State var bird3ID: Double = 0
+
     @State var birdFlyIndex: Int = 0
-    @State var xTarget: CGFloat = 10
-    @State var yTarget: CGFloat = 10
-    var bridCount = 4
     
     var body: some View {
         ZStack {
@@ -65,16 +64,16 @@ struct Watch2: View {
                 .zIndex(0.2)
             
             Image("watch2_hour")
-                .offset(x: 50, y: -45)
-                .scaleEffect(0.5)
+                .offset(y: -150)
+                .scaleEffect(0.3)
                 .rotationEffect(.init(degrees: currentTime.hrAngle()))
                 .zIndex(0.8)
-                .offset(y: -50)
-        
+                .offset(y: 10)
+
             ForEach(1..<branchCount) {index in
                 Image("watch2_min-\(index)")
                     .offset(y: -150)
-                    .scaleEffect(0.32)
+                    .scaleEffect(0.4)
                     .rotationEffect(.init(degrees: currentTime.minAngle()))
                     .zIndex(2)
                     .offset(y: 10)
@@ -114,22 +113,22 @@ struct Watch2: View {
             
             //bird Image
             Image("bird-1-\(birdFlyIndex)")
-                .scaleEffect(0.3)
-                .rotationEffect(.init(degrees: 90+birdID))
+                .scaleEffect(0.25)
+                .rotationEffect(.init(degrees: 90+bird1ID))
                 .offset(x: bird1X, y: bird1Y)
                 .zIndex(2.4)
             
-//            Image("bird-2-\(birdFlyIndex)")
-//                .scaleEffect(0.3)
-//                .rotationEffect(.init(degrees: 90+birdID))
-//                .offset(x: bird2X, y: bird2Y)
-//                .zIndex(2.4)
-//
-//            Image("bird-3-\(birdFlyIndex)")
-//                .scaleEffect(0.3)
-//                .rotationEffect(.init(degrees: 90+birdID))
-//                .offset(x: bird3X, y: bird3Y)
-//                .zIndex(2.4)
+            Image("bird-2-\(birdFlyIndex)")
+                .scaleEffect(0.3)
+                .rotationEffect(.init(degrees: 90+bird2ID))
+                .offset(x: bird2X, y: bird2Y)
+                .zIndex(2.4)
+
+            Image("bird-3-\(birdFlyIndex)")
+                .scaleEffect(0.2)
+                .rotationEffect(.init(degrees: 90+bird3ID))
+                .offset(x: bird3X, y: bird3Y)
+                .zIndex(2.4)
         }
         
         //make the background audio
@@ -161,37 +160,37 @@ struct Watch2: View {
                 branchOpacity = 0
             }
             
-            if distance(x: bird1X, y: bird1Y) > 150 {
+            if distance(x: bird1X, y: bird1Y) > 400 {
                 bird1X *= 0.8
                 bird1Y *= 0.8
-                birdID = Double.random(in: 0..<360)
+                bird1ID = Double.random(in: 0..<360)
             }
             
-            self.bird1X += CGFloat(10 * cos(birdID * Double.pi / 180))
-            self.bird1Y += CGFloat(5 * sin(birdID * Double.pi / 180))
+            self.bird1X += CGFloat(2 * cos(bird1ID * Double.pi / 180))
+            self.bird1Y += CGFloat(2 * sin(bird1ID * Double.pi / 180))
             
-            if distance(x: bird2X, y: bird2Y) > 150 {
+            if distance(x: bird2X, y: bird2Y) > 410 {
                 bird2X *= 0.8
                 bird2Y *= 0.8
-                birdID = Double.random(in: 0..<300)
+                bird2ID = Double.random(in: 0..<360)
             }
             
-            self.bird2X += CGFloat(20 * cos(birdID * Double.pi / 90))
-            self.bird2Y += CGFloat(20 * sin(birdID * Double.pi / 180))
+            self.bird2X += CGFloat(5 * cos(bird2ID * Double.pi / 180))
+            self.bird2Y += CGFloat(5 * sin(bird2ID * Double.pi / 180))
             
-            if distance(x: bird3X, y: bird3Y) > 150 {
+            if distance(x: bird3X, y: bird3Y) > 400 {
                 bird3X *= 0.8
                 bird3Y *= 0.8
-                birdID = Double.random(in: 0..<260)
+                bird3ID = Double.random(in: 0..<360)
             }
             
-            self.bird3X += CGFloat(40 * cos(birdID * Double.pi / 180))
-            self.bird3Y += CGFloat(40 * sin(birdID * Double.pi / 180))
+            self.bird3X += CGFloat(10 * cos(bird3ID * Double.pi / 180))
+            self.bird3Y += CGFloat(10 * sin(bird3ID * Double.pi / 180))
         }
         
-        .onReceive(thirdReceiver) { _ in
+        .onReceive(thirdReceiver, perform: { _ in
             birdFlyIndex = (birdFlyIndex + 1) % 2
-        }
+        })
         
         .onTapGesture {
             if mushroomOn {
@@ -199,8 +198,8 @@ struct Watch2: View {
             } else {
                 mushroomOn = true
                 mushroomIndex = Int.random(in: 1...6)
-                mushroomX = CGFloat.random(in: -100...100)
-                mushroomY = CGFloat.random(in: -150...150)
+                mushroomX = CGFloat.random(in: -500...500)
+                mushroomY = CGFloat.random(in: -300...300)
             }
         }
 

@@ -104,7 +104,7 @@ struct Watch3: View {
                 .zIndex(0.9)
 
             Image("shadow")
-                .scaleEffect(0.5)
+                .scaleEffect(0.3)
                 .offset(x: shadowX, y: shadowY)
                 .zIndex(0.1)
 
@@ -157,7 +157,7 @@ struct Watch3: View {
                 personY = 90 - 40/5000*CGFloat(tenSecondRemainder-5000)
             }
 
-            if distance(x: seagullX, y: seagullY) > 150 {
+            if distance(x: seagullX, y: seagullY) > 420 {
                 seagullX *= 0.8
                 seagullY *= 0.8
                 seagullD = Double.random(in: 0 ..< 360)
@@ -192,8 +192,8 @@ struct Watch3: View {
             self.ballY += CGFloat(0.5 * sin(ballD * Double.pi / 180))
 
             if sqrt(pow((ballX-targetX), 2) + pow((ballY-targetY), 2)) <= 5 {
-                targetX = CGFloat.random(in: -90 ..< 90)
-                targetY = CGFloat.random(in: -75 ..< 105)
+                targetX = CGFloat.random(in: -190 ..< 190)
+                targetY = CGFloat.random(in: -175 ..< 305)
             }
             let xDiff = targetX - ballX
             let yDiff = targetY - ballY
