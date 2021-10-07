@@ -33,8 +33,15 @@ struct Watch2: View {
     //let mushroomIndex = Int.getUniqueRandomNumbers(min: 1, max: 3, count: 100)
     
     //bird var
-    @State var birdX: CGFloat = 0
-    @State var birdY: CGFloat = 50
+    @State var bird1X: CGFloat = 0
+    @State var bird1Y: CGFloat = 50
+    
+    @State var bird2X: CGFloat = 200
+    @State var bird2Y: CGFloat = 200
+    
+    @State var bird3X: CGFloat = 400
+    @State var bird3Y: CGFloat = 400
+    
     @State var birdID: Double = 0
     let birdIndex = Int.random(in: 1...3)
     @State var birdFlyIndex: Int = 0
@@ -48,62 +55,81 @@ struct Watch2: View {
             // Main clock
             Image("watch2_background")
                 .zIndex(0)
-                .scaleEffect(0.5)
-                .opacity(1)
+                .scaleEffect(0.35)
                 .offset(y: 15)
-                .zIndex(0)
+                .zIndex(0.1)
             
             Image("watch2_leaf")
-                .scaleEffect(0.50)
+                .scaleEffect(0.3)
                 .offset(y: 15)
                 .zIndex(0.2)
             
             Image("watch2_hour")
-                .offset(y: -40)
+                .offset(x: 50, y: -45)
                 .scaleEffect(0.5)
                 .rotationEffect(.init(degrees: currentTime.hrAngle()))
                 .zIndex(0.8)
-                .offset(y: 15)
+                .offset(y: -50)
         
-            Image("watch2_min-1")
-                .offset(y: -30)
-                .scaleEffect(0.32)
-                .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .zIndex(2)
-                .offset(y: 10)
-                .opacity(branchOpacity)
-
-            Image("watch2_min-2")
-                .offset(y: -55)
-                .scaleEffect(0.32)
-                .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .zIndex(2)
-                .offset(y: 8)
-                .opacity(branchOpacity)
-
-            Image("watch2_min-3")
-                .offset(y: -150)
-                .scaleEffect(0.32)
-                .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .zIndex(2)
-                .offset(y: 10)
-                .opacity(branchOpacity)
+            ForEach(1..<branchCount) {index in
+                Image("watch2_min-\(index)")
+                    .offset(y: -150)
+                    .scaleEffect(0.32)
+                    .rotationEffect(.init(degrees: currentTime.minAngle()))
+                    .zIndex(2)
+                    .offset(y: 10)
+                    .opacity(branchOpacity)
+            }
+            
+//            Image("watch2_min-1")
+//                .offset(y: -30)
+//                .scaleEffect(0.32)
+//                .rotationEffect(.init(degrees: currentTime.minAngle()))
+//                .zIndex(2)
+//                .offset(y: 10)
+//                .opacity(branchOpacity)
+//
+//            Image("watch2_min-2")
+//                .offset(y: -55)
+//                .scaleEffect(0.32)
+//                .rotationEffect(.init(degrees: currentTime.minAngle()))
+//                .zIndex(2)
+//                .offset(y: 8)
+//                .opacity(branchOpacity)
+//
+//            Image("watch2_min-3")
+//                .offset(y: -150)
+//                .scaleEffect(0.32)
+//                .rotationEffect(.init(degrees: currentTime.minAngle()))
+//                .zIndex(2)
+//                .offset(y: 10)
+//                .opacity(branchOpacity)
             
             //mushroom Image
             Image("mushroom-\(mushroomIndex)")
                 .offset(x: mushroomX, y: mushroomY)
-                .scaleEffect(0.5)
+                .scaleEffect(0.4)
                 .zIndex(1.0)
                 .opacity(mushroomOn ? 0 : 1)
             
             //bird Image
-            ForEach(1..<bridCount) { index in
-                Image("bird-\(index)-\(birdFlyIndex)")
-                    .scaleEffect(0.3)
-                    .rotationEffect(.init(degrees: 90+birdID))
-                    .offset(x: birdX, y: birdY)
-                    .zIndex(2.4)
-            }
+            Image("bird-1-\(birdFlyIndex)")
+                .scaleEffect(0.3)
+                .rotationEffect(.init(degrees: 90+birdID))
+                .offset(x: bird1X, y: bird1Y)
+                .zIndex(2.4)
+            
+//            Image("bird-2-\(birdFlyIndex)")
+//                .scaleEffect(0.3)
+//                .rotationEffect(.init(degrees: 90+birdID))
+//                .offset(x: bird2X, y: bird2Y)
+//                .zIndex(2.4)
+//
+//            Image("bird-3-\(birdFlyIndex)")
+//                .scaleEffect(0.3)
+//                .rotationEffect(.init(degrees: 90+birdID))
+//                .offset(x: bird3X, y: bird3Y)
+//                .zIndex(2.4)
         }
         
         //make the background audio
@@ -131,29 +157,40 @@ struct Watch2: View {
         .onReceive(secondReceiver) { _ in
             if currentTime.sec == 0 {
                 branchOpacity = 1
+            } else if currentTime.sec == 58 {
+                branchOpacity = 0
             }
             
-            if distance(x: birdX, y: birdY) > 150 {
-                birdX *= 0.8
-                birdY *= 0.8
+            if distance(x: bird1X, y: bird1Y) > 150 {
+                bird1X *= 0.8
+                bird1Y *= 0.8
                 birdID = Double.random(in: 0..<360)
             }
             
-            if currentTime.sec > 50 || branchOpacity == 0 {
-                birdX = xMinute
-                birdY = yMinute
+            self.bird1X += CGFloat(10 * cos(birdID * Double.pi / 180))
+            self.bird1Y += CGFloat(5 * sin(birdID * Double.pi / 180))
+            
+            if distance(x: bird2X, y: bird2Y) > 150 {
+                bird2X *= 0.8
+                bird2Y *= 0.8
+                birdID = Double.random(in: 0..<300)
             }
             
-            self.birdX += CGFloat(10 * cos(birdID * Double.pi / 180))
-            self.birdY += CGFloat(5 * sin(birdID * Double.pi / 180))
+            self.bird2X += CGFloat(20 * cos(birdID * Double.pi / 90))
+            self.bird2Y += CGFloat(20 * sin(birdID * Double.pi / 180))
+            
+            if distance(x: bird3X, y: bird3Y) > 150 {
+                bird3X *= 0.8
+                bird3Y *= 0.8
+                birdID = Double.random(in: 0..<260)
+            }
+            
+            self.bird3X += CGFloat(40 * cos(birdID * Double.pi / 180))
+            self.bird3Y += CGFloat(40 * sin(birdID * Double.pi / 180))
         }
         
         .onReceive(thirdReceiver) { _ in
-            if currentTime.sec == 58 {
-                branchOpacity = 0
-            }
             birdFlyIndex = (birdFlyIndex + 1) % 2
-
         }
         
         .onTapGesture {

@@ -23,8 +23,8 @@ struct Watch3: View {
 
     @State var surferX: CGFloat = -15
 
-    @State var personX: CGFloat = -80
-    @State var personY: CGFloat = 250
+    @State var personX: CGFloat = -280
+    @State var personY: CGFloat = 50
 
     @State var seagullX: CGFloat = -50
     @State var seagullY: CGFloat = -50
@@ -42,7 +42,7 @@ struct Watch3: View {
     @State var ballD: Double = 0
 
     @State var shadowX: CGFloat = 10
-    @State var shadowY: CGFloat = -200
+    @State var shadowY: CGFloat = -500
     
     var animation: Animation {
         Animation.easeOut
@@ -54,22 +54,21 @@ struct Watch3: View {
             // Main clock
             Image("watch3_background")
                 .scaleEffect(0.35)
-                .offset(y: -70)
+                .offset(y: -20)
                 .zIndex(0.1)
             
             Image("watch3_hour\(hourIndex)")
-                .offset(x: -200, y: -200)
                 .scaleEffect(0.25)
+                .offset(y: -25)
                 .rotationEffect(.init(degrees: currentTime.hrAngle()))
-                .offset(y: -15)
+                .offset(y: -50)
                 .zIndex(0.1)
             
             Image("watch3_minute\(minuteIndex)")
-                .offset(x: 250, y: -350)
                 .scaleEffect(0.25)
+                .offset(x: -5, y: -50)
                 .rotationEffect(.init(degrees: currentTime.minAngle()))
-//                .offset(y: -15)
-                .opacity(0.4)
+                .offset(y: -50)
                 .zIndex(0.1)
             
             Image("surfer\(surferIndex)")
@@ -78,7 +77,7 @@ struct Watch3: View {
                 .offset(x: surferX)
                 .offset(x: -5, y: -50)
                 .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .offset(y: 20)
+                .offset(y: -30)
                 .zIndex(0.3)
 
             Image("person")
@@ -145,17 +144,17 @@ struct Watch3: View {
             let thirtySecondRemainder = secondInMili % 30000
 
             if thirtySecondRemainder < 15000 {
-                personX = -80 + 160/15000*CGFloat(thirtySecondRemainder)
+                personX = 280 + 160/15000*CGFloat(thirtySecondRemainder-15000)
             } else {
-                personX = 80 - 160/15000*CGFloat(thirtySecondRemainder-15000)
+                personX = 280 - 160/15000*CGFloat(thirtySecondRemainder-15000)
             }
 
             let tenSecondRemainder = (secondInMili+2500) % 10000
 
             if tenSecondRemainder < 5000 {
-                personY = 250 + 40/5000*CGFloat(tenSecondRemainder)
+                personY = 50 + 40/5000*CGFloat(tenSecondRemainder)
             } else {
-                personY = 290 - 40/5000*CGFloat(tenSecondRemainder-5000)
+                personY = 90 - 40/5000*CGFloat(tenSecondRemainder-5000)
             }
 
             if distance(x: seagullX, y: seagullY) > 150 {
@@ -168,23 +167,23 @@ struct Watch3: View {
             self.seagullY += CGFloat(2 * sin(seagullD * Double.pi / 180))
 
             if thirtySecondRemainder < 5000 {
-                tubeX = -150
+                tubeX = -450
                 tubeY = -150
                 tubeD = 45
             } else if thirtySecondRemainder < 12000 {
-                tubeX = -150 + 110/7000*CGFloat(thirtySecondRemainder-5000)
-                tubeY = -150 + 110/7000*CGFloat(thirtySecondRemainder-5000)
+                tubeX = -450 + 200/7000*CGFloat(thirtySecondRemainder-5000)
+                tubeY = -150 + 200/7000*CGFloat(thirtySecondRemainder-5000)
                 tubeD = 45
             } else if thirtySecondRemainder < 15000 {
-                tubeX = -40
-                tubeY = -40
+                tubeX = -250
+                tubeY = 50
                 tubeD = 45 + 180/3000000000*Double(thirtySecondRemainder-12000)
             } else if thirtySecondRemainder < 22000 {
-                tubeX = -40-110/7000*CGFloat(thirtySecondRemainder-15000)
-                tubeY = -40-110/7000*CGFloat(thirtySecondRemainder-15000)
+                tubeX = -250-200/7000*CGFloat(thirtySecondRemainder-15000)
+                tubeY = 50-200/7000*CGFloat(thirtySecondRemainder-15000)
                 tubeD = 225
             } else {
-                tubeX = -150
+                tubeX = -450
                 tubeY = -150
                 tubeD = 45
             }
@@ -205,13 +204,13 @@ struct Watch3: View {
 
             if thirtySecondRemainder < 10000 {
                 shadowX = 10
-                shadowY = -150
+                shadowY = -500
             } else if secondInMili < 15000 {
-                shadowX = 10 + 20/5000*CGFloat(thirtySecondRemainder-10000)
-                shadowY = -150 + 300/5000*CGFloat(thirtySecondRemainder-10000)
+                shadowX = -100 + 50/5000*CGFloat(thirtySecondRemainder-10000)
+                shadowY = -150 + 500/5000*CGFloat(thirtySecondRemainder-10000)
             } else {
                 shadowX = 30
-                shadowY = 150
+                shadowY = 500
             }
 
         })
