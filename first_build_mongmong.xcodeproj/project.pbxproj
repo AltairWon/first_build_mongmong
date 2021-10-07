@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DD2A6FBB270442C50036889D /* wave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2A6FBA270442C50036889D /* wave.mp3 */; };
+		DD42C60B270F407E0066800D /* Watch_Video1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42C60A270F407E0066800D /* Watch_Video1.swift */; };
+		DD42C60F270F46480066800D /* Rain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD42C60D270F40DE0066800D /* Rain.mp4 */; };
+		DD42C610270F464B0066800D /* Wind.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD42C60E270F40DE0066800D /* Wind.mp4 */; };
+		DD42C612270F48780066800D /* none.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD42C611270F48780066800D /* none.mp3 */; };
+		DD42C614270F4F750066800D /* Watch_Video2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42C613270F4F750066800D /* Watch_Video2.swift */; };
 		DD93406E26E9DCA70099A19F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93406D26E9DCA70099A19F /* AppDelegate.swift */; };
 		DD93407026E9DCA70099A19F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93406F26E9DCA70099A19F /* SceneDelegate.swift */; };
 		DD93407226E9DCA70099A19F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93407126E9DCA70099A19F /* ContentView.swift */; };
@@ -44,6 +49,11 @@
 
 /* Begin PBXFileReference section */
 		DD2A6FBA270442C50036889D /* wave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wave.mp3; sourceTree = "<group>"; };
+		DD42C60A270F407E0066800D /* Watch_Video1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video1.swift; sourceTree = "<group>"; };
+		DD42C60D270F40DE0066800D /* Rain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.mp4; sourceTree = "<group>"; };
+		DD42C60E270F40DE0066800D /* Wind.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wind.mp4; sourceTree = "<group>"; };
+		DD42C611270F48780066800D /* none.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = none.mp3; sourceTree = "<group>"; };
+		DD42C613270F4F750066800D /* Watch_Video2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video2.swift; sourceTree = "<group>"; };
 		DD93406A26E9DCA70099A19F /* first_build_mongmong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = first_build_mongmong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD93406D26E9DCA70099A19F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD93406F26E9DCA70099A19F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,12 +105,22 @@
 		DD28A63E270BDE260057E01F /* Bgm */ = {
 			isa = PBXGroup;
 			children = (
+				DD42C611270F48780066800D /* none.mp3 */,
 				DDD2CFFC270DF3D2001B03AD /* bird.mp3 */,
 				DDD2CFFD270DF3D3001B03AD /* surfing.mp3 */,
 				DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */,
 				DD2A6FBA270442C50036889D /* wave.mp3 */,
 			);
 			path = Bgm;
+			sourceTree = "<group>";
+		};
+		DD42C60C270F40D40066800D /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DD42C60D270F40DE0066800D /* Rain.mp4 */,
+				DD42C60E270F40DE0066800D /* Wind.mp4 */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		DD93406126E9DCA70099A19F = {
@@ -126,6 +146,7 @@
 		DD93406C26E9DCA70099A19F /* first_build_mongmong */ = {
 			isa = PBXGroup;
 			children = (
+				DD42C60C270F40D40066800D /* Video */,
 				DDD2CFF5270DF08F001B03AD /* WatchView */,
 				DD28A63E270BDE260057E01F /* Bgm */,
 				DD9340A226E9F6D90099A19F /* time.swift */,
@@ -172,6 +193,8 @@
 				DDD2CFF6270DF0AE001B03AD /* Watch2.swift */,
 				DDD2CFF8270DF0C6001B03AD /* Watch1.swift */,
 				DDD2CFFA270DF102001B03AD /* Watch3.swift */,
+				DD42C60A270F407E0066800D /* Watch_Video1.swift */,
+				DD42C613270F4F750066800D /* Watch_Video2.swift */,
 			);
 			path = WatchView;
 			sourceTree = "<group>";
@@ -279,6 +302,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD42C610270F464B0066800D /* Wind.mp4 in Resources */,
+				DD42C60F270F46480066800D /* Rain.mp4 in Resources */,
+				DD42C612270F48780066800D /* none.mp3 in Resources */,
 				DD93407A26E9DCA90099A19F /* LaunchScreen.storyboard in Resources */,
 				DD2A6FBB270442C50036889D /* wave.mp3 in Resources */,
 				DDD2CFFE270DF3D3001B03AD /* bird.mp3 in Resources */,
@@ -313,9 +339,11 @@
 				DDD2CFF7270DF0AE001B03AD /* Watch2.swift in Sources */,
 				DDD2CFF0270DE4F5001B03AD /* PlaySound.swift in Sources */,
 				DDD2CFF9270DF0C6001B03AD /* Watch1.swift in Sources */,
+				DD42C60B270F407E0066800D /* Watch_Video1.swift in Sources */,
 				DDD2CFFB270DF102001B03AD /* Watch3.swift in Sources */,
 				DD93407026E9DCA70099A19F /* SceneDelegate.swift in Sources */,
 				DD9340A326E9F6D90099A19F /* time.swift in Sources */,
+				DD42C614270F4F750066800D /* Watch_Video2.swift in Sources */,
 				DD93407226E9DCA70099A19F /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
  import AVKit
  
  struct ContentView: View {
+    @State var audioPlayer: AVAudioPlayer!
     
     var body: some View {
         NavigationView {
@@ -22,14 +23,21 @@
                 NavigationLink( destination: Watch3()){
                     Text("Watch Scene 3")
                 }
+                NavigationLink( destination: Watch_Video1()){
+                    Text("Watch Scene 4")
+                }
+                NavigationLink( destination: Watch_Video2()){
+                    Text("Watch Scene 5")
+                }
             }
         }
         
-        
         //make the background audio
-//        .onAppear(perform: {
-//            playSound(sound: "wave", type: "mp3")
-//        })
+        .onAppear {
+            let sound = Bundle.main.path(forResource: "none", ofType: "mp3")
+            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            self.audioPlayer.volume = 0.8
+            self.audioPlayer.play()
+        }
     }
-    
 }
