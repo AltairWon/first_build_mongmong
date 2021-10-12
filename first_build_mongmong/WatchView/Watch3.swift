@@ -9,7 +9,6 @@ import SwiftUI
 import AVKit
 
 struct Watch3: View {
-    @State var audioPlayer: AVAudioPlayer!
     @State var homeView  = false
     @State var nextView = false
     
@@ -57,10 +56,16 @@ struct Watch3: View {
                 .offset(x: -360, y: -150)
                 .onTapGesture {
                     self.homeView.toggle()
+                    audioPlayer?.stop()
                 }
                 .fullScreenCover(isPresented: $homeView) {
                     MainView()
                 }
+                
+                //set the background music
+                .onAppear(perform: {
+                    playSound(sound: "surfing", type: "mp3")
+                })
                 .zIndex(1.2)
 
 //            Image("next_view")
@@ -133,14 +138,6 @@ struct Watch3: View {
             }
             
 
-        }
-        
-        //make the background audio
-        .onAppear {
-            let sound = Bundle.main.path(forResource: "surfing", ofType: "mp3")
-            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-            self.audioPlayer.volume = 0.8
-//            self.audioPlayer.play()
         }
         
         .onReceive(receiver, perform: { _ in

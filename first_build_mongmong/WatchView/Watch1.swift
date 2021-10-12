@@ -9,7 +9,6 @@ import SwiftUI
 import AVKit
 
 struct Watch1: View {
-    @State var audioPlayer: AVAudioPlayer!
     @State var homeView  = false
     @State var nextView = false
     
@@ -58,17 +57,23 @@ struct Watch1: View {
                 .scaleEffect(0.4)
                 .offset(x: -360, y: -150)
                 .onTapGesture {
+                    audioPlayer?.stop()
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
                     MainView()
+                    
                 }
+                .onAppear(perform: {
+                    playSound(sound: "wave", type: "mp3")
+                })
                 .zIndex(1.2)
             
             Image("next_view")
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    audioPlayer?.stop()
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {
@@ -152,14 +157,7 @@ struct Watch1: View {
             .zIndex(2)
 
         }
-        //make the background audio
-        .onAppear {
-            let sound = Bundle.main.path(forResource: "wave", ofType: "mp3")
-            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-            self.audioPlayer.volume = 0.8
-//            self.audioPlayer.play()
-        }
-
+        
         .onReceive(receiver, perform: { _ in
             let calendar = Calendar.current
 

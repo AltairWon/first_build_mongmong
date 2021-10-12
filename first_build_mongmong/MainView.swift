@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+import MediaPlayer
 
 struct MainView: View {
     @State var iconScale: CGFloat = 1
@@ -91,7 +93,34 @@ struct MainView: View {
                 .scaleEffect(x: 1.2, y: 1)
                 .offset(x: iconX+660, y: 6.5)
                 .zIndex(1)
+            
+            VolumeSlider()
+                .scaleEffect(x: 0.36, y: 1.1)
+                .frame(height: 24)
+                .offset(x: -10, y: 365)
+                .rotationEffect(.degrees(-90))
+                .zIndex(1)
         }
+    }
+}
+
+//set the volume var
+struct VolumeSlider: UIViewRepresentable {
+    func updateUIView(_ uiView: MPVolumeView, context: Context) {}
+    
+    
+    func makeUIView(context: Context) -> MPVolumeView {
+        let volumeView = MPVolumeView()
+        volumeView.showsRouteButton = false // TODO: 'showsRouteButton' was deprecated in iOS 13.0: Use AVRoutePickerView instead.
+        if let sliderView = volumeView.subviews.first as? UISlider {
+            // custom design colors
+            sliderView.minimumTrackTintColor = UIColor(red: 0.557, green: 0.871, blue: 0.824, alpha: 1)
+            sliderView.thumbTintColor = UIColor(red: 0.525, green: 0.749, blue: 1.0, alpha: 1)
+            sliderView.maximumTrackTintColor = UIColor(red: 0.525, green: 0.749, blue: 1.0, alpha: 1)
+        }
+        
+        return volumeView
+        
     }
 }
 
