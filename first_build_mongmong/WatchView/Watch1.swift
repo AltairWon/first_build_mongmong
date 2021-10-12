@@ -10,6 +10,8 @@ import AVKit
 
 struct Watch1: View {
     @State var audioPlayer: AVAudioPlayer!
+    @State var homeView  = false
+    @State var nextView = false
     
     @State var currentTime = Time(ns: 0, sec: 0, min: 0, hr: 0)
     @State var receiver = Timer.publish(every: 0.2, on: .current, in: .default).autoconnect()
@@ -51,8 +53,30 @@ struct Watch1: View {
 
     var body: some View {
         ZStack {
+            //Main page and next page button
+            Image("home_view")
+                .scaleEffect(0.4)
+                .offset(x: -360, y: -150)
+                .onTapGesture {
+                    self.homeView.toggle()
+                }
+                .fullScreenCover(isPresented: $homeView) {
+                    MainView()
+                }
+                .zIndex(1.2)
+            
+            Image("next_view")
+                .scaleEffect(0.4)
+                .offset(x: 360, y: 150)
+                .onTapGesture {
+                    self.nextView.toggle()
+                }
+                .fullScreenCover(isPresented: $nextView) {
+                    Watch2()
+                }
+                .zIndex(1.2)
+            
             Group {
-                
                 // Main clock
                 Image("watch1_background")
                     .scaleEffect(0.40)

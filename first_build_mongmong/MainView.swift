@@ -12,6 +12,12 @@ struct MainView: View {
     @State var iconX: CGFloat = -300
     @State var iconY: CGFloat = 40
     
+    @State var watch1 = false
+    @State var watch2 = false
+    @State var watch3 = false
+    @State var watch_video1 = false
+    @State var watch_video2 = false
+
     var body: some View {
         ZStack{
             Image("main_background")
@@ -23,26 +29,56 @@ struct MainView: View {
                 Image("ocean_icon")
                     .scaleEffect(iconScale)
                     .offset(x: iconX, y: iconY)
+                    .onTapGesture {
+                        self.watch1.toggle()
+                    }
+                    .fullScreenCover(isPresented: $watch1) {
+                        Watch1()
+                    }
                     .zIndex(1)
                 
                 Image("bell_icon")
                     .scaleEffect(iconScale)
                     .offset(x: iconX+110, y: iconY)
+                    .onTapGesture {
+                        self.watch_video1.toggle()
+                    }
+                    .fullScreenCover(isPresented: $watch_video1) {
+                        Watch_Video1()
+                    }
                     .zIndex(1)
                 
                 Image("bird_icon")
                     .scaleEffect(iconScale)
                     .offset(x: iconX+220, y: iconY)
+                    .onTapGesture {
+                        self.watch2.toggle()
+                    }
+                    .fullScreenCover(isPresented: $watch2) {
+                        Watch2()
+                    }
                     .zIndex(1)
                 
                 Image("rain_icon")
                     .scaleEffect(iconScale)
                     .offset(x: iconX+330, y: iconY)
+                    .onTapGesture {
+                        self.watch_video2.toggle()
+                    }
+                    .fullScreenCover(isPresented: $watch_video2) {
+                        Watch_Video2()
+                    }
                     .zIndex(1)
                 
                 Image("surfing_icon")
                     .scaleEffect(iconScale)
                     .offset(x: iconX+440, y: iconY)
+                    .onTapGesture {
+                        self.watch3.toggle()
+                    }
+                    .fullScreenCover(isPresented: $watch3) {
+                        Watch3()
+                    }
                     .zIndex(1)
                 
                 Image("plus_icon")

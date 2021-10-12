@@ -10,7 +10,8 @@ import AVKit
 
 struct Watch3: View {
     @State var audioPlayer: AVAudioPlayer!
-
+    @State var homeView  = false
+    @State var nextView = false
     
     @State var currentTime = Time(ns: 0, sec: 0, min: 0, hr: 0)
     @State var receiver = Timer.publish(every: 0.2, on: .current, in: .default).autoconnect()
@@ -50,63 +51,87 @@ struct Watch3: View {
 
     var body: some View {
         ZStack {
+            //Main page and next page button
+            Image("home_view")
+                .scaleEffect(0.4)
+                .offset(x: -360, y: -150)
+                .onTapGesture {
+                    self.homeView.toggle()
+                }
+                .fullScreenCover(isPresented: $homeView) {
+                    MainView()
+                }
+                .zIndex(1.2)
+
+//            Image("next_view")
+//                .scaleEffect(0.4)
+//                .offset(x: 360, y: 150)
+//                .onTapGesture {
+//                    self.nextView.toggle()
+//                }
+//                .fullScreenCover(isPresented: $nextView) {
+//                    //set the next watch view
+//                }
+//                .zIndex(1.2)
+            Group{
+                // Main clock
+                Image("watch3_background")
+                    .scaleEffect(0.35)
+                    .offset(y: -20)
+                    .zIndex(0.1)
+                
+                Image("watch3_hour\(hourIndex)")
+                    .scaleEffect(0.25)
+                    .offset(y: -25)
+                    .rotationEffect(.init(degrees: currentTime.hrAngle()))
+                    .offset(y: -50)
+                    .zIndex(0.1)
+                
+                Image("watch3_minute\(minuteIndex)")
+                    .scaleEffect(0.25)
+                    .offset(x: -5, y: -50)
+                    .rotationEffect(.init(degrees: currentTime.minAngle()))
+                    .offset(y: -50)
+                    .zIndex(0.1)
+                
+                Image("surfer\(surferIndex)")
+                    .scaleEffect(0.3)
+                    .rotationEffect(.init(degrees: -90))
+                    .offset(x: surferX)
+                    .offset(x: -5, y: -50)
+                    .rotationEffect(.init(degrees: currentTime.minAngle()))
+                    .offset(y: -30)
+                    .zIndex(0.3)
+
+                Image("person")
+                    .scaleEffect(0.3)
+                    .offset(x: personX, y: personY)
+                    .zIndex(0.2)
+
+                Image("seagull")
+                    .scaleEffect(0.3)
+                    .rotationEffect(.init(degrees: 90+seagullD))
+                    .offset(x: seagullX, y: seagullY)
+                    .zIndex(0.4)
+
+                Image("tube")
+                    .scaleEffect(0.3)
+                    .rotationEffect(.init(degrees: 90+tubeD))
+                    .offset(x: tubeX, y: tubeY + 15)
+                    .zIndex(0.4)
+
+                Image("ball")
+                    .scaleEffect(isAnimated ? 6 : 0.3)
+                    .animation(animation)
+                    .offset(x: ballX, y: ballY)
+                    .zIndex(0.9)
+
+                Image("shadow")
+                    .scaleEffect(0.3)
+                    .offset(x: shadowX, y: shadowY)
+                    .zIndex(0.1)
+            }
             
-            // Main clock
-            Image("watch3_background")
-                .scaleEffect(0.35)
-                .offset(y: -20)
-                .zIndex(0.1)
-            
-            Image("watch3_hour\(hourIndex)")
-                .scaleEffect(0.25)
-                .offset(y: -25)
-                .rotationEffect(.init(degrees: currentTime.hrAngle()))
-                .offset(y: -50)
-                .zIndex(0.1)
-            
-            Image("watch3_minute\(minuteIndex)")
-                .scaleEffect(0.25)
-                .offset(x: -5, y: -50)
-                .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .offset(y: -50)
-                .zIndex(0.1)
-            
-            Image("surfer\(surferIndex)")
-                .scaleEffect(0.3)
-                .rotationEffect(.init(degrees: -90))
-                .offset(x: surferX)
-                .offset(x: -5, y: -50)
-                .rotationEffect(.init(degrees: currentTime.minAngle()))
-                .offset(y: -30)
-                .zIndex(0.3)
-
-            Image("person")
-                .scaleEffect(0.3)
-                .offset(x: personX, y: personY)
-                .zIndex(0.2)
-
-            Image("seagull")
-                .scaleEffect(0.3)
-                .rotationEffect(.init(degrees: 90+seagullD))
-                .offset(x: seagullX, y: seagullY)
-                .zIndex(0.4)
-
-            Image("tube")
-                .scaleEffect(0.3)
-                .rotationEffect(.init(degrees: 90+tubeD))
-                .offset(x: tubeX, y: tubeY + 15)
-                .zIndex(0.4)
-
-            Image("ball")
-                .scaleEffect(isAnimated ? 6 : 0.3)
-                .animation(animation)
-                .offset(x: ballX, y: ballY)
-                .zIndex(0.9)
-
-            Image("shadow")
-                .scaleEffect(0.3)
-                .offset(x: shadowX, y: shadowY)
-                .zIndex(0.1)
 
         }
         
