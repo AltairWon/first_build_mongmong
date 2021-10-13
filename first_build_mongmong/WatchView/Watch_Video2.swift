@@ -7,8 +7,44 @@
 
 import SwiftUI
 import AVKit
+import MediaPlayer
 
-struct Watch_Video2: UIViewRepresentable {
+struct Watch_Video2: View {
+    @State var homeView  = false
+    @State var nextView = false
+    
+    var body: some View {
+        ZStack {
+            //Main page and next page button
+            Image("home_view")
+                .scaleEffect(0.3)
+                .offset(x: -360, y: -140)
+                .onTapGesture {
+                    self.homeView.toggle()
+                }
+                .fullScreenCover(isPresented: $homeView) {
+                    MainView()
+                }
+                .zIndex(1.2)
+            
+            Image("next_view")
+                .scaleEffect(0.4)
+                .offset(x: 360, y: 150)
+                .onTapGesture {
+                    audioPlayer?.stop()
+                    self.nextView.toggle()
+                }
+                .fullScreenCover(isPresented: $nextView) {
+                    Watch2()
+                }
+                .zIndex(1.2)
+            
+            VideoPlayer2()
+        }
+    }
+}
+
+struct VideoPlayer2: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
         return QueuePlayerUIView(frame: .zero)
     }
@@ -93,6 +129,6 @@ class PlayerUIView: UIView {
 
 struct LoopingPlayer_Previews: PreviewProvider {
     static var previews: some View {
-        Watch_Video2()
+        VideoPlayer2()
     }
 }

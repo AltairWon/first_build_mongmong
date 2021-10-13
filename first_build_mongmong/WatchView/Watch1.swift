@@ -77,7 +77,7 @@ struct Watch1: View {
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {
-                    Watch2()
+                    Watch_Video1()
                 }
                 .zIndex(1.2)
             
