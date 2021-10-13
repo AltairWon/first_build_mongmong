@@ -116,7 +116,7 @@ struct VolumeSlider: UIViewRepresentable {
             // custom design colors
             sliderView.minimumTrackTintColor = UIColor(red: 0.557, green: 0.871, blue: 0.824, alpha: 1)
             sliderView.thumbTintColor = UIColor(red: 0.525, green: 0.749, blue: 1.0, alpha: 1)
-            sliderView.maximumTrackTintColor = UIColor(red: 0.525, green: 0.749, blue: 1.0, alpha: 1)
+            sliderView.maximumTrackTintColor = UIColor(red: 0.365, green: 0.365, blue: 0.365, alpha: 1)
         }
         
         return volumeView

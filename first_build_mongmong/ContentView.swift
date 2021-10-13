@@ -8,9 +8,7 @@
  import SwiftUI
  import AVKit
  
- struct ContentView: View {
-    @State var audioPlayer: AVAudioPlayer!
-    
+ struct ContentView: View {    
     var body: some View {
         MainView()
     }

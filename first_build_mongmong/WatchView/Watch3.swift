@@ -52,8 +52,8 @@ struct Watch3: View {
         ZStack {
             //Main page and next page button
             Image("home_view")
-                .scaleEffect(0.4)
-                .offset(x: -360, y: -150)
+                .scaleEffect(0.3)
+                .offset(x: -360, y: -140)
                 .onTapGesture {
                     self.homeView.toggle()
                     audioPlayer?.stop()

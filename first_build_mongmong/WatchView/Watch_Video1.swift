@@ -21,7 +21,7 @@ struct Watch_Video1: UIViewRepresentable {
     class LoopingPlayerUIView: UIView {
         private let playerLayer = AVPlayerLayer()
         private var playerLooper: AVPlayerLooper?
-
+        
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
