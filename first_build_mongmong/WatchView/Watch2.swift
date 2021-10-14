@@ -79,7 +79,7 @@ struct Watch2: View {
                     audioPlayer?.stop()
                 }
                 .fullScreenCover(isPresented: $nextView) {
-                    Watch3()
+                    Watch_Video2()
                 }
                 
                 .zIndex(1.2)

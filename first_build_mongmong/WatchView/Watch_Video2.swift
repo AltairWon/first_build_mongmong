@@ -35,11 +35,12 @@ struct Watch_Video2: View {
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {
-                    Watch2()
+                    Watch3()
                 }
                 .zIndex(1.2)
             
             VideoPlayer2()
+                .scaleEffect(x: 1.1, y: 1.1)
         }
     }
 }

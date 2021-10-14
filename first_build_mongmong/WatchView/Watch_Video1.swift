@@ -40,6 +40,7 @@ struct Watch_Video1: View {
                 .zIndex(1.2)
             
             VideoPlayer()
+                .scaleEffect(x: 1.1, y: 1.1)
         }
     }
 }
