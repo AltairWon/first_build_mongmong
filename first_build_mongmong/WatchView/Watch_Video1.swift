@@ -20,6 +20,7 @@ struct Watch_Video1: View {
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
@@ -31,6 +32,7 @@ struct Watch_Video1: View {
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     audioPlayer?.stop()
                     self.nextView.toggle()
                 }

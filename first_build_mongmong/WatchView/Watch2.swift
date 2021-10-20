@@ -58,6 +58,7 @@ struct Watch2: View {
                 
                 //tap to go back to main page and stop the music
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                     audioPlayer?.stop()
                 }
@@ -75,6 +76,7 @@ struct Watch2: View {
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     self.nextView.toggle()
                     audioPlayer?.stop()
                 }

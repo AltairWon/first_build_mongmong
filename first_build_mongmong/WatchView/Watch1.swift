@@ -57,6 +57,7 @@ struct Watch1: View {
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     audioPlayer?.stop()
                     self.homeView.toggle()
                 }
@@ -66,6 +67,7 @@ struct Watch1: View {
                 }
                 .onAppear(perform: {
                     playSound(sound: "wave", type: "mp3")
+
                 })
                 .zIndex(1.2)
             
@@ -73,6 +75,7 @@ struct Watch1: View {
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     audioPlayer?.stop()
                     self.nextView.toggle()
                 }

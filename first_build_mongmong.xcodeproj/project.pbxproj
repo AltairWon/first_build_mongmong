@@ -29,6 +29,7 @@
 		DDD2CFFB270DF102001B03AD /* Watch3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFFA270DF102001B03AD /* Watch3.swift */; };
 		DDD2CFFE270DF3D3001B03AD /* bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDD2CFFC270DF3D2001B03AD /* bird.mp3 */; };
 		DDD2CFFF270DF3D3001B03AD /* surfing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDD2CFFD270DF3D3001B03AD /* surfing.mp3 */; };
+		DDEB878C271D106C00E9D0AD /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDEB878B271D106C00E9D0AD /* click.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		DDD2CFFA270DF102001B03AD /* Watch3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch3.swift; sourceTree = "<group>"; };
 		DDD2CFFC270DF3D2001B03AD /* bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird.mp3; sourceTree = "<group>"; };
 		DDD2CFFD270DF3D3001B03AD /* surfing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = surfing.mp3; sourceTree = "<group>"; };
+		DDEB878B271D106C00E9D0AD /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		DD28A63E270BDE260057E01F /* Bgm */ = {
 			isa = PBXGroup;
 			children = (
+				DDEB878B271D106C00E9D0AD /* click.mp3 */,
 				DD42C611270F48780066800D /* none.mp3 */,
 				DDD2CFFC270DF3D2001B03AD /* bird.mp3 */,
 				DDD2CFFD270DF3D3001B03AD /* surfing.mp3 */,
@@ -309,6 +312,7 @@
 				DD42C60F270F46480066800D /* Rain.mp4 in Resources */,
 				DD42C612270F48780066800D /* none.mp3 in Resources */,
 				DD93407A26E9DCA90099A19F /* LaunchScreen.storyboard in Resources */,
+				DDEB878C271D106C00E9D0AD /* click.mp3 in Resources */,
 				DD2A6FBB270442C50036889D /* wave.mp3 in Resources */,
 				DDD2CFFE270DF3D3001B03AD /* bird.mp3 in Resources */,
 				DD93407726E9DCA90099A19F /* Preview Assets.xcassets in Resources */,

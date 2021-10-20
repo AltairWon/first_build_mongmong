@@ -55,6 +55,7 @@ struct Watch3: View {
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                     audioPlayer?.stop()
                 }
