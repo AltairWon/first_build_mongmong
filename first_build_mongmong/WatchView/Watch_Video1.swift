@@ -9,17 +9,37 @@ import SwiftUI
 import AVKit
 import MediaPlayer
 
+//class VideoStatus: ObservableObject {
+//    var isPlaying = true {
+//        didSet {
+//            if isPlaying {
+//                player?.player?.play()
+//            } else {
+//                player?.player?.pause()
+//            }
+//        }
+//    }
+//
+//    var player: AVPlayerLayer?
+//}
+
 struct Watch_Video1: View {
-    @State var homeView  = false
+    @State var homeView = false
     @State var nextView = false
+    @State var playing = true
+//    @ObservedObject var status = VideoStatus()
     
     var body: some View {
         ZStack {
+            Color.black
+                .ignoresSafeArea()
+            
             //Main page and next page button
             Image("home_view")
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    playing.toggle()
                     playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                 }
@@ -32,8 +52,8 @@ struct Watch_Video1: View {
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    playing.toggle()
                     playSound2(sound: "click", type: "mp3")
-                    audioPlayer?.stop()
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {
@@ -41,26 +61,34 @@ struct Watch_Video1: View {
                 }
                 .zIndex(1.2)
             
-            VideoPlayer()
-                .scaleEffect(x: 1.1, y: 1.1)
+            VideoPlayer(playing: $playing)
+                .scaleEffect(1.1)
         }
+
     }
 }
 
 
 struct VideoPlayer: UIViewRepresentable {
+    @Binding var playing: Bool
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayer>) {
     }
     
     func makeUIView(context: Context) -> UIView {
-        return LoopingPlayerUIView(frame: .zero)
+        let playerView = LoopingPlayerUIView(frame: .zero)
+        if self.playing {
+            playerView.playerLayer.player?.play()
+        } else {
+            playerView.playerLayer.player?.pause()
+        }
+        return playerView
     }
 }
 
 
 class LoopingPlayerUIView: UIView {
-    private let playerLayer = AVPlayerLayer()
-    private var playerLooper: AVPlayerLooper?
+    let playerLayer = AVPlayerLayer()
+    var playerLooper: AVPlayerLooper?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -82,13 +110,17 @@ class LoopingPlayerUIView: UIView {
         
         // Create a new player looper with the queue player and template item
         playerLooper = AVPlayerLooper(player: player, templateItem: item)
-        
+//        playerLooper
         // Start the movie
-        player.play()
+//        player.play()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
+    }
+    
+    override func removeFromSuperview() {
+        playerLayer.player?.pause()
     }
 }

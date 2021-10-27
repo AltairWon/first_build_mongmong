@@ -22,9 +22,15 @@ struct MainView: View {
 
     var body: some View {
         ZStack{
-            Image("main_background")
-                .offset(y: 10)
-                .zIndex(0.1)
+            GeometryReader { geo in
+                Image("main_background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .scaleEffect(1.3)
+                    .offset(y: 10.5)
+
+            }
             
             //Image icon
             Group {

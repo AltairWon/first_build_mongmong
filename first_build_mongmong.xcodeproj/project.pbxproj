@@ -199,8 +199,8 @@
 				DDD2CFF6270DF0AE001B03AD /* Watch2.swift */,
 				DDD2CFF8270DF0C6001B03AD /* Watch1.swift */,
 				DDD2CFFA270DF102001B03AD /* Watch3.swift */,
-				DD42C60A270F407E0066800D /* Watch_Video1.swift */,
 				DD42C613270F4F750066800D /* Watch_Video2.swift */,
+				DD42C60A270F407E0066800D /* Watch_Video1.swift */,
 			);
 			path = WatchView;
 			sourceTree = "<group>";
