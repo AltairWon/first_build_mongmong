@@ -29,71 +29,101 @@ struct MainView: View {
                     .frame(width: geo.size.width, height: geo.size.height)
                     .scaleEffect(1.3)
                     .offset(y: 10.5)
-
+                
+                //icon Image
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(){
+                        Button(action: {
+                            self.watch1.toggle()
+                        }) {
+                            Image("icon_1")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch1) {
+                            Watch1()
+                        }
+                        .zIndex(1)
+                        
+                        Button(action: {
+                            self.watch_video1.toggle()
+                        }) {
+                            Image("icon_2")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                        }
+                        .fullScreenCover(isPresented: $watch_video1) {
+                            Watch_Video1()
+                        }
+                        .zIndex(1)
+                        
+                        
+                    }
+                    
+                }
             }
             
             //Image icon
-            Group {
-                Image("ocean_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX, y: iconY)
-                    .onTapGesture {
-                        self.watch1.toggle()
-                    }
-                    .fullScreenCover(isPresented: $watch1) {
-                        Watch1()
-                    }
-                    .zIndex(1)
-                
-                Image("bell_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX+110, y: iconY)
-                    .onTapGesture {
-                        self.watch_video1.toggle()
-                    }
-                    .fullScreenCover(isPresented: $watch_video1) {
-                        Watch_Video1()
-                    }
-                    .zIndex(1)
-                
-                Image("bird_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX+220, y: iconY)
-                    .onTapGesture {
-                        self.watch2.toggle()
-                    }
-                    .fullScreenCover(isPresented: $watch2) {
-                        Watch2()
-                    }
-                    .zIndex(1)
-                
-                Image("rain_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX+330, y: iconY)
-                    .onTapGesture {
-                        self.watch_video2.toggle()
-                    }
-                    .fullScreenCover(isPresented: $watch_video2) {
-                        Watch_Video2()
-                    }
-                    .zIndex(1)
-                
-                Image("surfing_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX+440, y: iconY)
-                    .onTapGesture {
-                        self.watch3.toggle()
-                    }
-                    .fullScreenCover(isPresented: $watch3) {
-                        Watch3()
-                    }
-                    .zIndex(1)
-                
-                Image("plus_icon")
-                    .scaleEffect(iconScale)
-                    .offset(x: iconX+550, y: iconY - 10)
-                    .zIndex(1)
-            }
+//            Group {
+//                Image("ocean_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX, y: iconY)
+//                    .onTapGesture {
+//                        self.watch1.toggle()
+//                    }
+//                    .fullScreenCover(isPresented: $watch1) {
+//                        Watch1()
+//                    }
+//                    .zIndex(1)
+//
+//                Image("bell_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX+110, y: iconY)
+//                    .onTapGesture {
+//                        self.watch_video1.toggle()
+//                    }
+//                    .fullScreenCover(isPresented: $watch_video1) {
+//                        Watch_Video1()
+//                    }
+//                    .zIndex(1)
+//
+//                Image("bird_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX+220, y: iconY)
+//                    .onTapGesture {
+//                        self.watch2.toggle()
+//                    }
+//                    .fullScreenCover(isPresented: $watch2) {
+//                        Watch2()
+//                    }
+//                    .zIndex(1)
+//
+//                Image("rain_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX+330, y: iconY)
+//                    .onTapGesture {
+//                        self.watch_video2.toggle()
+//                    }
+//                    .fullScreenCover(isPresented: $watch_video2) {
+//                        Watch_Video2()
+//                    }
+//                    .zIndex(1)
+//
+//                Image("surfing_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX+440, y: iconY)
+//                    .onTapGesture {
+//                        self.watch3.toggle()
+//                    }
+//                    .fullScreenCover(isPresented: $watch3) {
+//                        Watch3()
+//                    }
+//                    .zIndex(1)
+//
+//                Image("plus_icon")
+//                    .scaleEffect(iconScale)
+//                    .offset(x: iconX+550, y: iconY - 10)
+//                    .zIndex(1)
+//            }
             
             Image("volume_background")
                 .scaleEffect(x: 1.2, y: 1)

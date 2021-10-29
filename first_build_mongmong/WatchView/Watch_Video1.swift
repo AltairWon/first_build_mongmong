@@ -21,45 +21,43 @@ class VideoStatus: ObservableObject {
 //    }
 //
 //    var player: AVPlayerLayer?
-    var isPlaying = true
+//    var isPlaying = false
 }
 
 struct Watch_Video1: View {
     @State var homeView = false
     @State var nextView = false
-    @ObservedObject var status = VideoStatus()
+//    @ObservedObject var status = VideoStatus()
     
     var body: some View {
         ZStack {
             Color.black
                 .ignoresSafeArea()
             
-//            //Main page and next page button
-//            Image("home_view")
-//                .scaleEffect(0.3)
-//                .offset(x: -360, y: -140)
-//                .onTapGesture {
-//                    status.isPlaying = false
-//                    playSound2(sound: "click", type: "mp3")
-//                    self.homeView.toggle()
-//                }
-//                .fullScreenCover(isPresented: $homeView) {
-//                    MainView()
-//                }
-//                .zIndex(1.2)
-//
-//            Image("next_view")
-//                .scaleEffect(0.4)
-//                .offset(x: 360, y: 150)
-//                .onTapGesture {
-//                    playing.toggle()
-//                    playSound2(sound: "click", type: "mp3")
-//                    self.nextView.toggle()
-//                }
-//                .fullScreenCover(isPresented: $nextView) {
-//                    Watch2()
-//                }
-//                .zIndex(1.2)
+            //Main page and next page button
+            Image("home_view")
+                .scaleEffect(0.3)
+                .offset(x: -360, y: -140)
+                .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
+                    self.homeView.toggle()
+                }
+                .fullScreenCover(isPresented: $homeView) {
+                    MainView()
+                }
+                .zIndex(1.2)
+
+            Image("next_view")
+                .scaleEffect(0.4)
+                .offset(x: 360, y: 150)
+                .onTapGesture {
+                    playSound2(sound: "click", type: "mp3")
+                    self.nextView.toggle()
+                }
+                .fullScreenCover(isPresented: $nextView) {
+                    Watch2()
+                }
+                .zIndex(1.2)
             
             VideoPlayer()
                 .scaleEffect(1.1)
@@ -81,6 +79,7 @@ struct Watch_Video1: View {
 
 
 struct VideoPlayer: UIViewRepresentable {
+//    @Binding var isPlaying: Bool
     
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayer>) {
     }
