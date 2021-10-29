@@ -39,18 +39,25 @@ struct Watch_Video1: View {
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    audioPlayer?.stop()
                     playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
                     MainView()
                 }
+                
+                .onAppear(perform: {
+                    playSound(sound: "Bell_bgm", type: "mp3")
+
+                })
                 .zIndex(1.2)
 
             Image("next_view")
                 .scaleEffect(0.4)
                 .offset(x: 360, y: 150)
                 .onTapGesture {
+                    audioPlayer?.stop()
                     playSound2(sound: "click", type: "mp3")
                     self.nextView.toggle()
                 }
@@ -112,7 +119,7 @@ class LoopingPlayerUIView: UIView {
         super.init(frame: frame)
         
         // Load the resource
-        let fileUrl = Bundle.main.url(forResource: "Wind", withExtension: "mp4")!
+        let fileUrl = Bundle.main.url(forResource: "Bell", withExtension: "mp4")!
         let asset = AVAsset(url: fileUrl)
         let item = AVPlayerItem(asset: asset)
         

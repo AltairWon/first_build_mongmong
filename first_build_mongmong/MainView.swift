@@ -19,6 +19,8 @@ struct MainView: View {
     @State var watch3 = false
     @State var watch_video1 = false
     @State var watch_video2 = false
+    @State var watch_video3 = false
+
 
     var body: some View {
         ZStack{
@@ -56,74 +58,58 @@ struct MainView: View {
                         }
                         .zIndex(1)
                         
+                        Button(action: {
+                            self.watch2.toggle()
+                        }) {
+                            Image("icon_3")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch2) {
+                            Watch2()
+                        }
+                        .zIndex(1)
+
+                        Button(action: {
+                            self.watch_video2.toggle()
+                        }) {
+                            Image("icon_4")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch_video2) {
+                            Watch_Video2()
+                        }
+                        .zIndex(1)
+                        
+                        Button(action: {
+                            self.watch3.toggle()
+                        }) {
+                            Image("icon_5")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch3) {
+                            Watch3()
+                        }
+                        .zIndex(1)
+                        
+                        Button(action: {
+                            self.watch_video3.toggle()
+                        }) {
+                            Image("icon_6")
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch_video3) {
+                            Watch_Video3()
+                        }
+                        .zIndex(1)
                         
                     }
                     
                 }
             }
-            
-            //Image icon
-//            Group {
-//                Image("ocean_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX, y: iconY)
-//                    .onTapGesture {
-//                        self.watch1.toggle()
-//                    }
-//                    .fullScreenCover(isPresented: $watch1) {
-//                        Watch1()
-//                    }
-//                    .zIndex(1)
-//
-//                Image("bell_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX+110, y: iconY)
-//                    .onTapGesture {
-//                        self.watch_video1.toggle()
-//                    }
-//                    .fullScreenCover(isPresented: $watch_video1) {
-//                        Watch_Video1()
-//                    }
-//                    .zIndex(1)
-//
-//                Image("bird_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX+220, y: iconY)
-//                    .onTapGesture {
-//                        self.watch2.toggle()
-//                    }
-//                    .fullScreenCover(isPresented: $watch2) {
-//                        Watch2()
-//                    }
-//                    .zIndex(1)
-//
-//                Image("rain_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX+330, y: iconY)
-//                    .onTapGesture {
-//                        self.watch_video2.toggle()
-//                    }
-//                    .fullScreenCover(isPresented: $watch_video2) {
-//                        Watch_Video2()
-//                    }
-//                    .zIndex(1)
-//
-//                Image("surfing_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX+440, y: iconY)
-//                    .onTapGesture {
-//                        self.watch3.toggle()
-//                    }
-//                    .fullScreenCover(isPresented: $watch3) {
-//                        Watch3()
-//                    }
-//                    .zIndex(1)
-//
-//                Image("plus_icon")
-//                    .scaleEffect(iconScale)
-//                    .offset(x: iconX+550, y: iconY - 10)
-//                    .zIndex(1)
-//            }
             
             Image("volume_background")
                 .scaleEffect(x: 1.2, y: 1)
