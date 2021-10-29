@@ -23,6 +23,7 @@
 		DD93409026E9DCA90099A19F /* first_build_mongmongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93408F26E9DCA90099A19F /* first_build_mongmongUITests.swift */; };
 		DD9340A326E9F6D90099A19F /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9340A226E9F6D90099A19F /* time.swift */; };
 		DDA6B7D527156F290000C7CF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6B7D427156F290000C7CF /* MainView.swift */; };
+		DDABC1CB272BC0D400EF59F6 /* bell_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDABC1CA272BC0D400EF59F6 /* bell_bgm.mp3 */; };
 		DDD2CFF0270DE4F5001B03AD /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */; };
 		DDD2CFF7270DF0AE001B03AD /* Watch2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFF6270DF0AE001B03AD /* Watch2.swift */; };
 		DDD2CFF9270DF0C6001B03AD /* Watch1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFF8270DF0C6001B03AD /* Watch1.swift */; };
@@ -72,6 +73,7 @@
 		DD93409126E9DCA90099A19F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD9340A226E9F6D90099A19F /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
 		DDA6B7D427156F290000C7CF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DDABC1CA272BC0D400EF59F6 /* bell_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell_bgm.mp3; sourceTree = "<group>"; };
 		DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		DDD2CFF6270DF0AE001B03AD /* Watch2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch2.swift; sourceTree = "<group>"; };
 		DDD2CFF8270DF0C6001B03AD /* Watch1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch1.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		DD42C60C270F40D40066800D /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				DDABC1CA272BC0D400EF59F6 /* bell_bgm.mp3 */,
 				DD42C60D270F40DE0066800D /* Rain.mp4 */,
 				DD42C60E270F40DE0066800D /* Wind.mp4 */,
 			);
@@ -308,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDABC1CB272BC0D400EF59F6 /* bell_bgm.mp3 in Resources */,
 				DD42C610270F464B0066800D /* Wind.mp4 in Resources */,
 				DD42C60F270F46480066800D /* Rain.mp4 in Resources */,
 				DD42C612270F48780066800D /* none.mp3 in Resources */,

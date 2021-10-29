@@ -9,7 +9,7 @@ import SwiftUI
 import AVKit
 import MediaPlayer
 
-//class VideoStatus: ObservableObject {
+class VideoStatus: ObservableObject {
 //    var isPlaying = true {
 //        didSet {
 //            if isPlaying {
@@ -21,48 +21,59 @@ import MediaPlayer
 //    }
 //
 //    var player: AVPlayerLayer?
-//}
+    var isPlaying = true
+}
 
 struct Watch_Video1: View {
     @State var homeView = false
     @State var nextView = false
-    @State var playing = true
-//    @ObservedObject var status = VideoStatus()
+    @ObservedObject var status = VideoStatus()
     
     var body: some View {
         ZStack {
             Color.black
                 .ignoresSafeArea()
             
-            //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -360, y: -140)
-                .onTapGesture {
-                    playing.toggle()
-                    playSound2(sound: "click", type: "mp3")
-                    self.homeView.toggle()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
-                .zIndex(1.2)
+//            //Main page and next page button
+//            Image("home_view")
+//                .scaleEffect(0.3)
+//                .offset(x: -360, y: -140)
+//                .onTapGesture {
+//                    status.isPlaying = false
+//                    playSound2(sound: "click", type: "mp3")
+//                    self.homeView.toggle()
+//                }
+//                .fullScreenCover(isPresented: $homeView) {
+//                    MainView()
+//                }
+//                .zIndex(1.2)
+//
+//            Image("next_view")
+//                .scaleEffect(0.4)
+//                .offset(x: 360, y: 150)
+//                .onTapGesture {
+//                    playing.toggle()
+//                    playSound2(sound: "click", type: "mp3")
+//                    self.nextView.toggle()
+//                }
+//                .fullScreenCover(isPresented: $nextView) {
+//                    Watch2()
+//                }
+//                .zIndex(1.2)
             
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 360, y: 150)
-                .onTapGesture {
-                    playing.toggle()
-                    playSound2(sound: "click", type: "mp3")
-                    self.nextView.toggle()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    Watch2()
-                }
-                .zIndex(1.2)
-            
-            VideoPlayer(playing: $playing)
+            VideoPlayer()
                 .scaleEffect(1.1)
+            
+            Button(action: {
+                self.homeView.toggle()
+            }) {
+                Image("home_view")
+                
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
+                
+            }
         }
 
     }
@@ -70,18 +81,22 @@ struct Watch_Video1: View {
 
 
 struct VideoPlayer: UIViewRepresentable {
-    @Binding var playing: Bool
+    
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayer>) {
     }
     
     func makeUIView(context: Context) -> UIView {
-        let playerView = LoopingPlayerUIView(frame: .zero)
-        if self.playing {
-            playerView.playerLayer.player?.play()
-        } else {
-            playerView.playerLayer.player?.pause()
-        }
-        return playerView
+        let loopPlayer = LoopingPlayerUIView(frame: .zero)
+        loopPlayer.play()
+        
+        return loopPlayer
+    }
+    
+    func stopUIView(context: Context) -> UIView {
+        let stopPlayer = LoopingPlayerUIView(frame: .zero)
+        stopPlayer.stop()
+        
+        return stopPlayer
     }
 }
 
@@ -112,7 +127,19 @@ class LoopingPlayerUIView: UIView {
         playerLooper = AVPlayerLooper(player: player, templateItem: item)
 //        playerLooper
         // Start the movie
-//        player.play()
+    }
+    
+    func play() {
+        self.playerLayer.player?.play()
+    }
+    
+    func pause() {
+        self.playerLayer.player?.pause()
+    }
+    
+    func stop() {
+        self.playerLayer.player?.pause()
+        self.playerLayer.player?.seek(to: CMTime.init(seconds: 0, preferredTimescale: 1))
     }
     
     override func layoutSubviews() {
