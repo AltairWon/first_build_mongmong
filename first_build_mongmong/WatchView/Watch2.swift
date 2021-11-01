@@ -51,53 +51,63 @@ struct Watch2: View {
     
     var body: some View {
         ZStack {
-            //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -360, y: -140)
+            GeometryReader { geo in
+                // Background
+                Image("watch2_background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .zIndex(0)
+                    .offset(y: 15)
+                    .zIndex(0.1)
                 
-                //tap to go back to main page and stop the music
-                .onTapGesture {
-                    playSound2(sound: "click", type: "mp3")
-                    self.homeView.toggle()
-                    audioPlayer?.stop()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
-                
-                //set the background music
-                .onAppear(perform: {
-                    playSound(sound: "bird", type: "mp3")
-                })
-                .zIndex(1.2)
+                Image("watch2_leaf")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .scaleEffect(0.5)
+                    .offset(y: 15)
+                    .zIndex(0.2)
+            }
             
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 360, y: 150)
-                .onTapGesture {
-                    playSound2(sound: "click", type: "mp3")
-                    self.nextView.toggle()
-                    audioPlayer?.stop()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    Watch_Video2()
-                }
+            Group {
+                //Main page and next page button
+                Image("home_view")
+                    .scaleEffect(0.3)
+                    .offset(x: -360, y: -140)
+                    
+                    //tap to go back to main page and stop the music
+                    .onTapGesture {
+                        playSound2(sound: "click", type: "mp3")
+                        self.homeView.toggle()
+                        audioPlayer?.stop()
+                    }
+                    .fullScreenCover(isPresented: $homeView) {
+                        MainView()
+                    }
+                    
+                    //set the background music
+                    .onAppear(perform: {
+                        playSound(sound: "bird", type: "mp3")
+                    })
+                    .zIndex(1.2)
                 
-                .zIndex(1.2)
-
+                Image("next_view")
+                    .scaleEffect(0.4)
+                    .offset(x: 360, y: 150)
+                    .onTapGesture {
+                        playSound2(sound: "click", type: "mp3")
+                        self.nextView.toggle()
+                        audioPlayer?.stop()
+                    }
+                    .fullScreenCover(isPresented: $nextView) {
+                        Watch_Video2()
+                    }
+                    
+                    .zIndex(1.2)
+            }
+            
             // Main clock
-            Image("watch2_background")
-                .zIndex(0)
-                .scaleEffect(0.35)
-                .offset(y: 15)
-                .zIndex(0.1)
-            
-            Image("watch2_leaf")
-                .scaleEffect(0.3)
-                .offset(y: 15)
-                .zIndex(0.2)
-            
             Image("watch2_hour")
                 .offset(y: -150)
                 .scaleEffect(0.3)

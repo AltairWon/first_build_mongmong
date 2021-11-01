@@ -39,6 +39,7 @@ struct MainView: View {
                             self.watch1.toggle()
                         }) {
                             Image("icon_1")
+                                .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
                         }
@@ -51,6 +52,7 @@ struct MainView: View {
                             self.watch_video1.toggle()
                         }) {
                             Image("icon_2")
+                                .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                         }
                         .fullScreenCover(isPresented: $watch_video1) {
@@ -62,6 +64,7 @@ struct MainView: View {
                             self.watch2.toggle()
                         }) {
                             Image("icon_3")
+                                .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
                         }
@@ -74,6 +77,7 @@ struct MainView: View {
                             self.watch_video2.toggle()
                         }) {
                             Image("icon_4")
+                                .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
                         }
@@ -86,6 +90,7 @@ struct MainView: View {
                             self.watch3.toggle()
                         }) {
                             Image("icon_5")
+                                .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
                         }
@@ -106,22 +111,28 @@ struct MainView: View {
                         }
                         .zIndex(1)
                         
+                        
+                        
                     }
                     
                 }
+                
+                Image("volume_background")
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: geo.size.width * 1.1)
+                    .offset(x: geo.size.height * 0.84, y: 7)
+                    .scaleEffect(1.08)
+//                    .offset(x: iconX+660, y: 6.5)
+                    .zIndex(1)
+                
+                VolumeSlider()
+                    .aspectRatio(contentMode: .fit)
+//                    .scaleEffect(x: 0.36, y: 1.1)
+                    .frame(height: geo.size.height * 0.8)
+                    .offset(x: -50, y: geo.size.height * 2.01)
+                    .rotationEffect(.degrees(-90))
+                    .zIndex(1)
             }
-            
-            Image("volume_background")
-                .scaleEffect(x: 1.2, y: 1)
-                .offset(x: iconX+660, y: 6.5)
-                .zIndex(1)
-            
-            VolumeSlider()
-                .scaleEffect(x: 0.36, y: 1.1)
-                .frame(height: 24)
-                .offset(x: -10, y: 365)
-                .rotationEffect(.degrees(-90))
-                .zIndex(1)
         }
     }
 }
@@ -148,7 +159,27 @@ struct VolumeSlider: UIViewRepresentable {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        Group {
+            MainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone 12 Mini")
+            
+            MainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            
+            MainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 12 Pro Max")
+            
+            MainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11")
+            
+            MainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro")
+        }
     }
 }
 

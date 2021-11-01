@@ -48,7 +48,7 @@ struct Watch_Video1: View {
                 }
                 
                 .onAppear(perform: {
-                    playSound(sound: "Bell_bgm", type: "mp3")
+                    playSound(sound: "Bell_Bgm", type: "mp3")
 
                 })
                 .zIndex(1.2)
@@ -69,16 +69,16 @@ struct Watch_Video1: View {
             VideoPlayer()
                 .scaleEffect(1.1)
             
-            Button(action: {
-                self.homeView.toggle()
-            }) {
-                Image("home_view")
-                
-            }
-            .fullScreenCover(isPresented: $homeView) {
-                MainView()
-                
-            }
+//            Button(action: {
+//                self.homeView.toggle()
+//            }) {
+//                Image("home_view")
+//                
+//            }
+//            .fullScreenCover(isPresented: $homeView) {
+//                MainView()
+//                
+//            }
         }
 
     }

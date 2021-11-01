@@ -15,16 +15,25 @@ struct Watch_Video2: View {
     
     var body: some View {
         ZStack {
+            Color.black
+                .ignoresSafeArea()
+            
             //Main page and next page button
             Image("home_view")
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    audioPlayer?.stop()
+                    playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
                     MainView()
                 }
+                .onAppear(perform: {
+                    playSound(sound: "Rain_Bgm", type: "mp3")
+
+                })
                 .zIndex(1.2)
             
             Image("next_view")
@@ -32,6 +41,7 @@ struct Watch_Video2: View {
                 .offset(x: 360, y: 150)
                 .onTapGesture {
                     audioPlayer?.stop()
+                    playSound2(sound: "click", type: "mp3")
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {
@@ -47,7 +57,7 @@ struct Watch_Video2: View {
 
 struct VideoPlayer2: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
-        return QueuePlayerUIView(frame: .zero)
+        return LoopingPlayerUIView2(frame: .zero)
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
@@ -55,7 +65,7 @@ struct VideoPlayer2: UIViewRepresentable {
     }
 }
 
-class QueuePlayerUIView: UIView {
+class LoopingPlayerUIView2: UIView {
     private var playerLayer = AVPlayerLayer()
     private var playerLooper: AVPlayerLooper?
     

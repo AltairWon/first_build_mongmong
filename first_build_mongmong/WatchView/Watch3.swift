@@ -69,16 +69,19 @@ struct Watch3: View {
                 })
                 .zIndex(1.2)
 
-//            Image("next_view")
-//                .scaleEffect(0.4)
-//                .offset(x: 360, y: 150)
-//                .onTapGesture {
-//                    self.nextView.toggle()
-//                }
-//                .fullScreenCover(isPresented: $nextView) {
-//                    //set the next watch view
-//                }
-//                .zIndex(1.2)
+            Image("next_view")
+                .scaleEffect(0.4)
+                .offset(x: 360, y: 150)
+                .onTapGesture {
+                    audioPlayer?.stop()
+                    playSound2(sound: "click", type: "mp3")
+                    self.nextView.toggle()
+                }
+                .fullScreenCover(isPresented: $nextView) {
+                    //set the next watch view
+                    Watch_Video3()
+                }
+                .zIndex(1.2)
             Group{
                 // Main clock
                 Image("watch3_background")

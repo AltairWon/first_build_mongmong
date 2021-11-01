@@ -41,39 +41,45 @@ struct Watch_Video3: View {
                 .scaleEffect(0.3)
                 .offset(x: -360, y: -140)
                 .onTapGesture {
+                    audioPlayer?.stop()
                     playSound2(sound: "click", type: "mp3")
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
                     MainView()
                 }
+                .onAppear(perform: {
+                    playSound(sound: "Fountain_Pen_Bgm", type: "mp3")
+
+                })
                 .zIndex(1.2)
 
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 360, y: 150)
-                .onTapGesture {
-                    playSound2(sound: "click", type: "mp3")
-                    self.nextView.toggle()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    Watch2()
-                }
-                .zIndex(1.2)
+//            Image("next_view")
+//                .scaleEffect(0.4)
+//                .offset(x: 360, y: 150)
+//                .onTapGesture {
+//                    audioPlayer?.stop()
+//                    playSound2(sound: "click", type: "mp3")
+//                    self.nextView.toggle()
+//                }
+//                .fullScreenCover(isPresented: $nextView) {
+//                    Watch2()
+//                }
+//                .zIndex(1.2)
             
             VideoPlayer3()
                 .scaleEffect(1.1)
             
-            Button(action: {
-                self.homeView.toggle()
-            }) {
-                Image("home_view")
-                
-            }
-            .fullScreenCover(isPresented: $homeView) {
-                MainView()
-                
-            }
+//            Button(action: {
+//                self.homeView.toggle()
+//            }) {
+//                Image("home_view")
+//                
+//            }
+//            .fullScreenCover(isPresented: $homeView) {
+//                MainView()
+//                
+//            }
         }
 
     }

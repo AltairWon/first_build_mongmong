@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DD2A6FBB270442C50036889D /* wave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2A6FBA270442C50036889D /* wave.mp3 */; };
+		DD2E50D5272FB88C003C5099 /* Rain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD2E50D4272FB88C003C5099 /* Rain.mp4 */; };
+		DD2E50D7272FB8A9003C5099 /* Bell_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2E50D6272FB8A9003C5099 /* Bell_bgm.mp3 */; };
 		DD42C60B270F407E0066800D /* Watch_Video1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42C60A270F407E0066800D /* Watch_Video1.swift */; };
-		DD42C60F270F46480066800D /* Rain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD42C60D270F40DE0066800D /* Rain.mp4 */; };
 		DD42C612270F48780066800D /* none.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD42C611270F48780066800D /* none.mp3 */; };
 		DD42C614270F4F750066800D /* Watch_Video2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42C613270F4F750066800D /* Watch_Video2.swift */; };
 		DD93406E26E9DCA70099A19F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93406D26E9DCA70099A19F /* AppDelegate.swift */; };
@@ -23,9 +24,10 @@
 		DD9340A326E9F6D90099A19F /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9340A226E9F6D90099A19F /* time.swift */; };
 		DDA6B7D527156F290000C7CF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6B7D427156F290000C7CF /* MainView.swift */; };
 		DDAF3F3B272C0B210072FB55 /* Watch_Video3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAF3F3A272C0B210072FB55 /* Watch_Video3.swift */; };
-		DDAF3F3E272C10F10072FB55 /* Bell_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDAF3F3D272C10F10072FB55 /* Bell_bgm.mp3 */; };
 		DDAF3F40272C189E0072FB55 /* Fountain_Pen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDAF3F3F272C189E0072FB55 /* Fountain_Pen.mp4 */; };
 		DDAF3F42272C18AB0072FB55 /* Bell.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDAF3F41272C18AB0072FB55 /* Bell.mp4 */; };
+		DDAF3F4B272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDAF3F49272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 */; };
+		DDAF3F4C272C1CFD0072FB55 /* Rain_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDAF3F4A272C1CFD0072FB55 /* Rain_Bgm.mp3 */; };
 		DDD2CFF0270DE4F5001B03AD /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */; };
 		DDD2CFF7270DF0AE001B03AD /* Watch2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFF6270DF0AE001B03AD /* Watch2.swift */; };
 		DDD2CFF9270DF0C6001B03AD /* Watch1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2CFF8270DF0C6001B03AD /* Watch1.swift */; };
@@ -54,8 +56,9 @@
 
 /* Begin PBXFileReference section */
 		DD2A6FBA270442C50036889D /* wave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wave.mp3; sourceTree = "<group>"; };
+		DD2E50D4272FB88C003C5099 /* Rain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rain.mp4; path = "../../../../../Downloads/영상소리 따로/Rain.mp4"; sourceTree = "<group>"; };
+		DD2E50D6272FB8A9003C5099 /* Bell_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bell_bgm.mp3; sourceTree = "<group>"; };
 		DD42C60A270F407E0066800D /* Watch_Video1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video1.swift; sourceTree = "<group>"; };
-		DD42C60D270F40DE0066800D /* Rain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.mp4; sourceTree = "<group>"; };
 		DD42C611270F48780066800D /* none.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = none.mp3; sourceTree = "<group>"; };
 		DD42C613270F4F750066800D /* Watch_Video2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video2.swift; sourceTree = "<group>"; };
 		DD93406A26E9DCA70099A19F /* first_build_mongmong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = first_build_mongmong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,9 +78,10 @@
 		DD9340A226E9F6D90099A19F /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
 		DDA6B7D427156F290000C7CF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DDAF3F3A272C0B210072FB55 /* Watch_Video3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video3.swift; sourceTree = "<group>"; };
-		DDAF3F3D272C10F10072FB55 /* Bell_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Bell_bgm.mp3; path = ../../../../../Downloads/Bell_bgm.mp3; sourceTree = "<group>"; };
 		DDAF3F3F272C189E0072FB55 /* Fountain_Pen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fountain_Pen.mp4; sourceTree = "<group>"; };
 		DDAF3F41272C18AB0072FB55 /* Bell.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bell.mp4; sourceTree = "<group>"; };
+		DDAF3F49272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fountain_Pen_Bgm.mp3; sourceTree = "<group>"; };
+		DDAF3F4A272C1CFD0072FB55 /* Rain_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rain_Bgm.mp3; sourceTree = "<group>"; };
 		DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		DDD2CFF6270DF0AE001B03AD /* Watch2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch2.swift; sourceTree = "<group>"; };
 		DDD2CFF8270DF0C6001B03AD /* Watch1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch1.swift; sourceTree = "<group>"; };
@@ -128,10 +132,12 @@
 		DD42C60C270F40D40066800D /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				DDAF3F41272C18AB0072FB55 /* Bell.mp4 */,
+				DD2E50D6272FB8A9003C5099 /* Bell_bgm.mp3 */,
+				DD2E50D4272FB88C003C5099 /* Rain.mp4 */,
+				DDAF3F49272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 */,
 				DDAF3F3F272C189E0072FB55 /* Fountain_Pen.mp4 */,
-				DDAF3F3D272C10F10072FB55 /* Bell_bgm.mp3 */,
-				DD42C60D270F40DE0066800D /* Rain.mp4 */,
+				DDAF3F4A272C1CFD0072FB55 /* Rain_Bgm.mp3 */,
+				DDAF3F41272C18AB0072FB55 /* Bell.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -317,15 +323,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDAF3F3E272C10F10072FB55 /* Bell_bgm.mp3 in Resources */,
-				DD42C60F270F46480066800D /* Rain.mp4 in Resources */,
 				DDAF3F42272C18AB0072FB55 /* Bell.mp4 in Resources */,
 				DD42C612270F48780066800D /* none.mp3 in Resources */,
+				DDAF3F4C272C1CFD0072FB55 /* Rain_Bgm.mp3 in Resources */,
 				DD93407A26E9DCA90099A19F /* LaunchScreen.storyboard in Resources */,
 				DDEB878C271D106C00E9D0AD /* click.mp3 in Resources */,
 				DDAF3F40272C189E0072FB55 /* Fountain_Pen.mp4 in Resources */,
+				DD2E50D7272FB8A9003C5099 /* Bell_bgm.mp3 in Resources */,
+				DD2E50D5272FB88C003C5099 /* Rain.mp4 in Resources */,
 				DD2A6FBB270442C50036889D /* wave.mp3 in Resources */,
 				DDD2CFFE270DF3D3001B03AD /* bird.mp3 in Resources */,
+				DDAF3F4B272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 in Resources */,
 				DD93407726E9DCA90099A19F /* Preview Assets.xcassets in Resources */,
 				DD93407426E9DCA90099A19F /* Assets.xcassets in Resources */,
 				DDD2CFFF270DF3D3001B03AD /* surfing.mp3 in Resources */,
@@ -480,7 +488,7 @@
 				CODE_SIGN_ENTITLEMENTS = first_build_mongmong/first_build_mongmong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"first_build_mongmong/Preview Content\"";
 				DEVELOPMENT_TEAM = 37NRGZ5CTX;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +497,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.firstbuild.mongmong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -603,7 +611,7 @@
 				CODE_SIGN_ENTITLEMENTS = first_build_mongmong/first_build_mongmong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"first_build_mongmong/Preview Content\"";
 				DEVELOPMENT_TEAM = 37NRGZ5CTX;
 				ENABLE_PREVIEWS = YES;
@@ -612,7 +620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.firstbuild.mongmong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -787,7 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = first_build_mongmong/first_build_mongmong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"first_build_mongmong/Preview Content\"";
 				DEVELOPMENT_TEAM = BQ7X69DNU7;
 				ENABLE_PREVIEWS = YES;
@@ -796,7 +804,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.firstbuild.mongmong-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -813,7 +821,7 @@
 				CODE_SIGN_ENTITLEMENTS = first_build_mongmong/first_build_mongmong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"first_build_mongmong/Preview Content\"";
 				DEVELOPMENT_TEAM = BQ7X69DNU7;
 				ENABLE_PREVIEWS = YES;
@@ -822,7 +830,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.firstbuild.mongmong-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
