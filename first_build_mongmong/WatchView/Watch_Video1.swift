@@ -35,7 +35,7 @@ struct Watch_Video1: View {
                 playSound(sound: "Bell_Bgm", type: "mp3")
                 
             })
-            .offset(x: -400, y: -140)
+            .offset(x: -350, y: -140)
             .zIndex(1.2)
             
             Button(action: {
@@ -49,7 +49,7 @@ struct Watch_Video1: View {
             .fullScreenCover(isPresented: $nextView) {
                 Watch2()
             }
-            .offset(x: 390, y: 150)
+            .offset(x: 350, y: 150)
             .zIndex(1.2)
             
             VideoPlayer()
@@ -60,7 +60,7 @@ struct Watch_Video1: View {
 }
 
 
-struct VideoPlayer: UIViewRepresentable {    
+struct VideoPlayer: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayer>) {
     }
     

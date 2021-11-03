@@ -40,6 +40,12 @@
 		DDE7FA6F273253530068DBFC /* Fountain_Pen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA6E273253530068DBFC /* Fountain_Pen.mp4 */; };
 		DDE7FA712732536E0068DBFC /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA702732536E0068DBFC /* Click.mp3 */; };
 		DDE7FA7327325DCB0068DBFC /* ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA7227325DCB0068DBFC /* ocean.mp3 */; };
+		DDE7FA7527328E600068DBFC /* Watch_Video6.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7FA7427328E600068DBFC /* Watch_Video6.swift */; };
+		DDE7FA7727328E6F0068DBFC /* Watch_Video7.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7FA7627328E6F0068DBFC /* Watch_Video7.swift */; };
+		DDE7FA7C27328EF90068DBFC /* CampFire_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA7827328EF60068DBFC /* CampFire_Bgm.mp3 */; };
+		DDE7FA7D27328EF90068DBFC /* Reed_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA7927328EF60068DBFC /* Reed_Bgm.mp3 */; };
+		DDE7FA7E27328EF90068DBFC /* Reed.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA7A27328EF80068DBFC /* Reed.mp4 */; };
+		DDE7FA7F27328EF90068DBFC /* CampFire.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA7B27328EF90068DBFC /* CampFire.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +105,12 @@
 		DDE7FA6E273253530068DBFC /* Fountain_Pen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fountain_Pen.mp4; sourceTree = "<group>"; };
 		DDE7FA702732536E0068DBFC /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click.mp3; sourceTree = "<group>"; };
 		DDE7FA7227325DCB0068DBFC /* ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean.mp3; sourceTree = "<group>"; };
+		DDE7FA7427328E600068DBFC /* Watch_Video6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video6.swift; sourceTree = "<group>"; };
+		DDE7FA7627328E6F0068DBFC /* Watch_Video7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video7.swift; sourceTree = "<group>"; };
+		DDE7FA7827328EF60068DBFC /* CampFire_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CampFire_Bgm.mp3; sourceTree = "<group>"; };
+		DDE7FA7927328EF60068DBFC /* Reed_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Reed_Bgm.mp3; sourceTree = "<group>"; };
+		DDE7FA7A27328EF80068DBFC /* Reed.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Reed.mp4; sourceTree = "<group>"; };
+		DDE7FA7B27328EF90068DBFC /* CampFire.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampFire.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +153,10 @@
 		DD42C60C270F40D40066800D /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				DDE7FA7827328EF60068DBFC /* CampFire_Bgm.mp3 */,
+				DDE7FA7B27328EF90068DBFC /* CampFire.mp4 */,
+				DDE7FA7927328EF60068DBFC /* Reed_Bgm.mp3 */,
+				DDE7FA7A27328EF80068DBFC /* Reed.mp4 */,
 				DDE7FA6C273253020068DBFC /* Rain.mp4 */,
 				DDE7FA67273228DE0068DBFC /* Water_Fall_Bgm.mp3 */,
 				DDE7FA66273228DD0068DBFC /* Wave_Bgm.mp3 */,
@@ -231,6 +247,8 @@
 				DDAF3F3A272C0B210072FB55 /* Watch_Video3.swift */,
 				DDE7FA5A2732260C0068DBFC /* Watch_Video4.swift */,
 				DDE7FA62273228640068DBFC /* Watch_Video5.swift */,
+				DDE7FA7427328E600068DBFC /* Watch_Video6.swift */,
+				DDE7FA7627328E6F0068DBFC /* Watch_Video7.swift */,
 			);
 			path = WatchView;
 			sourceTree = "<group>";
@@ -338,7 +356,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE7FA7C27328EF90068DBFC /* CampFire_Bgm.mp3 in Resources */,
 				DDAF3F42272C18AB0072FB55 /* Bell.mp4 in Resources */,
+				DDE7FA7D27328EF90068DBFC /* Reed_Bgm.mp3 in Resources */,
 				DDE7FA69273228DE0068DBFC /* Water_Fall_Bgm.mp3 in Resources */,
 				DDE7FA712732536E0068DBFC /* Click.mp3 in Resources */,
 				DDAF3F4C272C1CFD0072FB55 /* Rain_Bgm.mp3 in Resources */,
@@ -350,11 +370,13 @@
 				DDE7FA7327325DCB0068DBFC /* ocean.mp3 in Resources */,
 				DDAF3F4B272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 in Resources */,
 				DD93407726E9DCA90099A19F /* Preview Assets.xcassets in Resources */,
+				DDE7FA7F27328EF90068DBFC /* CampFire.mp4 in Resources */,
 				DD93407426E9DCA90099A19F /* Assets.xcassets in Resources */,
 				DDE7FA6D273253020068DBFC /* Rain.mp4 in Resources */,
 				DDE7FA61273227F00068DBFC /* Water_Fall.mp4 in Resources */,
 				DDE7FA6F273253530068DBFC /* Fountain_Pen.mp4 in Resources */,
 				DDD2CFFF270DF3D3001B03AD /* Surfing.mp3 in Resources */,
+				DDE7FA7E27328EF90068DBFC /* Reed.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD93406E26E9DCA70099A19F /* AppDelegate.swift in Sources */,
+				DDE7FA7727328E6F0068DBFC /* Watch_Video7.swift in Sources */,
 				DDAF3F3B272C0B210072FB55 /* Watch_Video3.swift in Sources */,
 				DDD2CFF7270DF0AE001B03AD /* Watch2.swift in Sources */,
 				DDE7FA63273228640068DBFC /* Watch_Video5.swift in Sources */,
@@ -392,6 +415,7 @@
 				DD9340A326E9F6D90099A19F /* time.swift in Sources */,
 				DD42C614270F4F750066800D /* Watch_Video2.swift in Sources */,
 				DD93407226E9DCA70099A19F /* ContentView.swift in Sources */,
+				DDE7FA7527328E600068DBFC /* Watch_Video6.swift in Sources */,
 				DDE7FA5B2732260C0068DBFC /* Watch_Video4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,7 @@ struct Watch_Video2: View {
                 playSound(sound: "Rain_Bgm", type: "mp3")
                 
             })
-            .offset(x: -400, y: -140)
+            .offset(x: -350, y: -140)
             .zIndex(1.2)
             
             Button(action: {
@@ -49,7 +49,7 @@ struct Watch_Video2: View {
             .fullScreenCover(isPresented: $nextView) {
                 Watch3()
             }
-            .offset(x: 390, y: 150)
+            .offset(x: 350, y: 150)
             .zIndex(1.2)
             
             VideoPlayer2()
