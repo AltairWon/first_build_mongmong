@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD2A6FBB270442C50036889D /* Ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2A6FBA270442C50036889D /* Ocean.mp3 */; };
 		DD2E50D5272FB88C003C5099 /* Rain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DD2E50D4272FB88C003C5099 /* Rain.mp4 */; };
 		DD2E50D7272FB8A9003C5099 /* Bell_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD2E50D6272FB8A9003C5099 /* Bell_Bgm.mp3 */; };
 		DD42C60B270F407E0066800D /* Watch_Video1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42C60A270F407E0066800D /* Watch_Video1.swift */; };
@@ -39,6 +38,7 @@
 		DDE7FA65273228A20068DBFC /* Wave.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA64273228A20068DBFC /* Wave.mp4 */; };
 		DDE7FA68273228DE0068DBFC /* Wave_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA66273228DD0068DBFC /* Wave_Bgm.mp3 */; };
 		DDE7FA69273228DE0068DBFC /* Water_Fall_Bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA67273228DE0068DBFC /* Water_Fall_Bgm.mp3 */; };
+		DDE7FA6B273248750068DBFC /* ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDE7FA6A273248750068DBFC /* ocean.mp3 */; };
 		DDEB878C271D106C00E9D0AD /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDEB878B271D106C00E9D0AD /* Click.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD2A6FBA270442C50036889D /* Ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ocean.mp3; sourceTree = "<group>"; };
 		DD2E50D4272FB88C003C5099 /* Rain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rain.mp4; path = "../../../../../Downloads/영상소리 따로/Rain.mp4"; sourceTree = "<group>"; };
 		DD2E50D6272FB8A9003C5099 /* Bell_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bell_Bgm.mp3; sourceTree = "<group>"; };
 		DD42C60A270F407E0066800D /* Watch_Video1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Video1.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		DDE7FA64273228A20068DBFC /* Wave.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wave.mp4; sourceTree = "<group>"; };
 		DDE7FA66273228DD0068DBFC /* Wave_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wave_Bgm.mp3; sourceTree = "<group>"; };
 		DDE7FA67273228DE0068DBFC /* Water_Fall_Bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Water_Fall_Bgm.mp3; sourceTree = "<group>"; };
+		DDE7FA6A273248750068DBFC /* ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean.mp3; sourceTree = "<group>"; };
 		DDEB878B271D106C00E9D0AD /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,11 +129,11 @@
 		DD28A63E270BDE260057E01F /* Bgm */ = {
 			isa = PBXGroup;
 			children = (
+				DDE7FA6A273248750068DBFC /* ocean.mp3 */,
 				DDEB878B271D106C00E9D0AD /* Click.mp3 */,
 				DDD2CFFC270DF3D2001B03AD /* Bird.mp3 */,
 				DDD2CFFD270DF3D3001B03AD /* Surfing.mp3 */,
 				DDD2CFEF270DE4F5001B03AD /* PlaySound.swift */,
-				DD2A6FBA270442C50036889D /* Ocean.mp3 */,
 			);
 			path = Bgm;
 			sourceTree = "<group>";
@@ -347,8 +347,8 @@
 				DDE7FA65273228A20068DBFC /* Wave.mp4 in Resources */,
 				DDE7FA68273228DE0068DBFC /* Wave_Bgm.mp3 in Resources */,
 				DD2E50D7272FB8A9003C5099 /* Bell_Bgm.mp3 in Resources */,
+				DDE7FA6B273248750068DBFC /* ocean.mp3 in Resources */,
 				DD2E50D5272FB88C003C5099 /* Rain.mp4 in Resources */,
-				DD2A6FBB270442C50036889D /* Ocean.mp3 in Resources */,
 				DDD2CFFE270DF3D3001B03AD /* Bird.mp3 in Resources */,
 				DDAF3F4B272C1CFD0072FB55 /* Fountain_Pen_Bgm.mp3 in Resources */,
 				DD93407726E9DCA90099A19F /* Preview Assets.xcassets in Resources */,
