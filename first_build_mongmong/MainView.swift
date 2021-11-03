@@ -20,8 +20,11 @@ struct MainView: View {
     @State var watch_video1 = false
     @State var watch_video2 = false
     @State var watch_video3 = false
-
-
+    @State var watch_video4 = false
+    @State var watch_video5 = false
+    @State private var showingAlert = false
+    
+    
     var body: some View {
         ZStack{
             GeometryReader { geo in
@@ -72,7 +75,7 @@ struct MainView: View {
                             Watch2()
                         }
                         .zIndex(1)
-
+                        
                         Button(action: {
                             self.watch_video2.toggle()
                         }) {
@@ -84,12 +87,14 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch_video2) {
                             Watch_Video2()
                         }
+                        
                         .zIndex(1)
                         
                         Button(action: {
                             self.watch3.toggle()
                         }) {
                             Image("icon_5")
+                                .offset(y: 2)
                                 .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
@@ -97,37 +102,80 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch3) {
                             Watch3()
                         }
+                        .padding(.horizontal, 8)
+                        
                         .zIndex(1)
                         
                         Button(action: {
                             self.watch_video3.toggle()
                         }) {
                             Image("icon_6")
+                                .offset(y: -2)
+                                .scaleEffect(1.03)
                             Spacer().frame(height: geo.size.height * 1.2)
                             
                         }
                         .fullScreenCover(isPresented: $watch_video3) {
                             Watch_Video3()
                         }
+                        .padding(.horizontal, -8)
+                        
                         .zIndex(1)
                         
+                        Button(action: {
+                            self.watch_video4.toggle()
+                        }) {
+                            Image("icon_7")
+                                .offset(y: -3)
+                                .scaleEffect(1.05)
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch_video4) {
+                            Watch_Video4()
+                        }
+                        .zIndex(1)
                         
+                        Button(action: {
+                            self.watch_video5.toggle()
+                        }) {
+                            Image("icon_8")
+                                .offset(y: -3)
+                                .scaleEffect(1.05)
+                            Spacer().frame(height: geo.size.height * 1.2)
+                            
+                        }
+                        .fullScreenCover(isPresented: $watch_video5) {
+                            Watch_Video5()
+                        }
+                        .zIndex(1)
                         
+                        Button(action: {
+                            self.showingAlert  = true
+                        }) {
+                            Image("icon_9")
+                                .offset(y: -16)
+                                .scaleEffect(1.05)
+                            Spacer().frame(height: geo.size.height * 1.2)
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("MongMong"), message: Text("We will update soon"), dismissButton: .default(Text("OK")))
+                        }
+                        .zIndex(1)
                     }
-                    
                 }
                 
                 Image("volume_background")
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geo.size.width * 1.1)
-                    .offset(x: geo.size.height * 0.84, y: 7)
+                    .offset(x: geo.size.height * 0.846, y: 7)
                     .scaleEffect(1.08)
-//                    .offset(x: iconX+660, y: 6.5)
+                    //                    .offset(x: iconX+660, y: 6.5)
                     .zIndex(1)
                 
                 VolumeSlider()
                     .aspectRatio(contentMode: .fit)
-//                    .scaleEffect(x: 0.36, y: 1.1)
+                    //                    .scaleEffect(x: 0.36, y: 1.1)
                     .frame(height: geo.size.height * 0.8)
                     .offset(x: -50, y: geo.size.height * 2.01)
                     .rotationEffect(.degrees(-90))

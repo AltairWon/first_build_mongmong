@@ -37,10 +37,10 @@ struct Watch_Video1: View {
             //Main page and next page button
             Image("home_view")
                 .scaleEffect(0.3)
-                .offset(x: -360, y: -140)
+                .offset(x: -400, y: -140)
                 .onTapGesture {
                     audioPlayer?.stop()
-                    playSound2(sound: "click", type: "mp3")
+                    playSound2(sound: "Click", type: "mp3")
                     self.homeView.toggle()
                 }
                 .fullScreenCover(isPresented: $homeView) {
@@ -55,10 +55,10 @@ struct Watch_Video1: View {
 
             Image("next_view")
                 .scaleEffect(0.4)
-                .offset(x: 360, y: 150)
+                .offset(x: 390, y: 150)
                 .onTapGesture {
                     audioPlayer?.stop()
-                    playSound2(sound: "click", type: "mp3")
+                    playSound2(sound: "Click", type: "mp3")
                     self.nextView.toggle()
                 }
                 .fullScreenCover(isPresented: $nextView) {

@@ -74,11 +74,11 @@ struct Watch2: View {
                 //Main page and next page button
                 Image("home_view")
                     .scaleEffect(0.3)
-                    .offset(x: -360, y: -140)
+                    .offset(x: -400, y: -140)
                     
                     //tap to go back to main page and stop the music
                     .onTapGesture {
-                        playSound2(sound: "click", type: "mp3")
+                        playSound2(sound: "Click", type: "mp3")
                         self.homeView.toggle()
                         audioPlayer?.stop()
                     }
@@ -88,15 +88,15 @@ struct Watch2: View {
                     
                     //set the background music
                     .onAppear(perform: {
-                        playSound(sound: "bird", type: "mp3")
+                        playSound(sound: "Bird", type: "mp3")
                     })
                     .zIndex(1.2)
                 
                 Image("next_view")
                     .scaleEffect(0.4)
-                    .offset(x: 360, y: 150)
+                    .offset(x: 390, y: 150)
                     .onTapGesture {
-                        playSound2(sound: "click", type: "mp3")
+                        playSound2(sound: "Click", type: "mp3")
                         self.nextView.toggle()
                         audioPlayer?.stop()
                     }
