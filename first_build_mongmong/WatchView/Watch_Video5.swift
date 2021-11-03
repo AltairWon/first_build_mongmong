@@ -36,25 +36,25 @@ struct Watch_Video5: View {
                 playSound(sound: "Water_Fall_Bgm", type: "mp3")
                 
             })
-            .offset(x: -400, y: -140)
+            .offset(x: -350, y: -140)
             .zIndex(1.2)
   
             //Button for next view
             //If you have another view, you will use it
             
-//            Button(action: {
-//                playSound2(sound: "Click", type: "mp3")
-//                audioPlayer?.stop()
-//                self.nextView.toggle()
-//            }) {
-//                Image("next_view")
-//                    .scaleEffect(0.4)
-//            }
-//            .fullScreenCover(isPresented: $nextView) {
-//                Watch2()
-//            }
-//            .offset(x: 390, y: 150)
-//            .zIndex(1.2)
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.nextView.toggle()
+            }) {
+                Image("next_view")
+                    .scaleEffect(0.4)
+            }
+            .fullScreenCover(isPresented: $nextView) {
+                Watch_Video6()
+            }
+            .offset(x: 350, y: 150)
+            .zIndex(1.2)
 
             
             VideoPlayer5()

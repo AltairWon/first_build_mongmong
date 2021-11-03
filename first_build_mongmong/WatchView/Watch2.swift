@@ -87,7 +87,7 @@ struct Watch2: View {
                 playSound(sound: "Bird", type: "mp3")
                 
             })
-            .offset(x: -400, y: -140)
+            .offset(x: -350, y: -140)
             .zIndex(1.2)
             
             Button(action: {
@@ -101,7 +101,7 @@ struct Watch2: View {
             .fullScreenCover(isPresented: $nextView) {
                 Watch_Video2()
             }
-            .offset(x: 390, y: 150)
+            .offset(x: 350, y: 150)
             .zIndex(1.2)
             
             // Main clock

@@ -22,6 +22,9 @@ struct MainView: View {
     @State var watch_video3 = false
     @State var watch_video4 = false
     @State var watch_video5 = false
+    @State var watch_video6 = false
+    @State var watch_video7 = false
+
     @State private var showingAlert = false
     
     
@@ -39,124 +42,156 @@ struct MainView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(){
                         Spacer(minLength: 13)
-                        Button(action: {
-                            self.watch1.toggle()
-                        }) {
-                            Image("icon_1")
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
+                        Group{
+                            Button(action: {
+                                self.watch1.toggle()
+                            }) {
+                                Image("icon_1")
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch1) {
+                                Watch1()
+                            }
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video1.toggle()
+                            }) {
+                                Image("icon_2")
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                            }
+                            .fullScreenCover(isPresented: $watch_video1) {
+                                Watch_Video1()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch2.toggle()
+                            }) {
+                                Image("icon_3")
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch2) {
+                                Watch2()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video2.toggle()
+                            }) {
+                                Image("icon_4")
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video2) {
+                                Watch_Video2()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch3.toggle()
+                            }) {
+                                Image("icon_5")
+                                    .offset(y: 2)
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch3) {
+                                Watch3()
+                            }
+                            .padding(.horizontal, -2)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video3.toggle()
+                            }) {
+                                Image("icon_6")
+                                    .offset(y: -2)
+                                    .scaleEffect(1.03)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video3) {
+                                Watch_Video3()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video4.toggle()
+                            }) {
+                                Image("icon_7")
+                                    .offset(y: -3)
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video4) {
+                                Watch_Video4()
+                            }
+                            .padding(.horizontal, -12)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video5.toggle()
+                            }) {
+                                Image("icon_8")
+                                    .offset(y: -3)
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video5) {
+                                Watch_Video5()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video6.toggle()
+                            }) {
+                                Image("icon_9")
+                                    .offset(y: -3)
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video6) {
+                                Watch_Video6()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
+                            
+                            Button(action: {
+                                self.watch_video7.toggle()
+                            }) {
+                                Image("icon_10")
+                                    .offset(y: -3)
+                                    .scaleEffect(1.05)
+                                Spacer().frame(height: geo.size.height * 1.2)
+                                
+                            }
+                            .fullScreenCover(isPresented: $watch_video7) {
+                                Watch_Video7()
+                            }
+                            .padding(.horizontal, -8)
+                            .zIndex(1)
                             
                         }
-                        .fullScreenCover(isPresented: $watch1) {
-                            Watch1()
-                        }
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch_video1.toggle()
-                        }) {
-                            Image("icon_2")
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                        }
-                        .fullScreenCover(isPresented: $watch_video1) {
-                            Watch_Video1()
-                        }
-                        .padding(.horizontal, -8)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch2.toggle()
-                        }) {
-                            Image("icon_3")
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch2) {
-                            Watch2()
-                        }
-                        .padding(.horizontal, -8)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch_video2.toggle()
-                        }) {
-                            Image("icon_4")
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch_video2) {
-                            Watch_Video2()
-                        }
-                        .padding(.horizontal, -8)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch3.toggle()
-                        }) {
-                            Image("icon_5")
-                                .offset(y: 2)
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch3) {
-                            Watch3()
-                        }
-                        .padding(.horizontal, -2)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch_video3.toggle()
-                        }) {
-                            Image("icon_6")
-                                .offset(y: -2)
-                                .scaleEffect(1.03)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch_video3) {
-                            Watch_Video3()
-                        }
-                        .padding(.horizontal, -8)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch_video4.toggle()
-                        }) {
-                            Image("icon_7")
-                                .offset(y: -3)
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch_video4) {
-                            Watch_Video4()
-                        }
-                        .padding(.horizontal, -12)
-                        .zIndex(1)
-                        
-                        Button(action: {
-                            self.watch_video5.toggle()
-                        }) {
-                            Image("icon_8")
-                                .offset(y: -3)
-                                .scaleEffect(1.05)
-                            Spacer().frame(height: geo.size.height * 1.2)
-                            
-                        }
-                        .fullScreenCover(isPresented: $watch_video5) {
-                            Watch_Video5()
-                        }
-                        .padding(.horizontal, -8)
-                        .zIndex(1)
-                        
                         Button(action: {
                             self.showingAlert  = true
                         }) {
-                            Image("icon_9")
+                            Image("icon_11")
                                 .offset(y: -16)
                                 .scaleEffect(1.05)
                             Spacer().frame(height: geo.size.height * 1.2)
@@ -164,7 +199,7 @@ struct MainView: View {
                         .alert(isPresented: $showingAlert) {
                             Alert(title: Text("MongMong"), message: Text("We will update soon"), dismissButton: .default(Text("OK")))
                         }
-                        .padding(.horizontal, -3)
+                        .padding(.horizontal, 3)
                         .zIndex(1)
                     }
                 }
@@ -172,7 +207,7 @@ struct MainView: View {
                 Image("volume_background")
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geo.size.width * 1.1)
-                    .offset(x: geo.size.height * 0.83, y: 7)
+                    .offset(x: geo.size.height * 0.83, y: -3)
                     .scaleEffect(1.1)
                     .zIndex(1)
                 
