@@ -9,25 +9,9 @@ import SwiftUI
 import AVKit
 import MediaPlayer
 
-class VideoStatus: ObservableObject {
-//    var isPlaying = true {
-//        didSet {
-//            if isPlaying {
-//                player?.player?.play()
-//            } else {
-//                player?.player?.pause()
-//            }
-//        }
-//    }
-//
-//    var player: AVPlayerLayer?
-//    var isPlaying = false
-}
-
 struct Watch_Video1: View {
     @State var homeView = false
     @State var nextView = false
-//    @ObservedObject var status = VideoStatus()
     
     var body: some View {
         ZStack {
@@ -35,59 +19,48 @@ struct Watch_Video1: View {
                 .ignoresSafeArea()
             
             //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -400, y: -140)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.homeView.toggle()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.homeView.toggle()
+            }) {
+                Image("home_view")
+                    .scaleEffect(0.3)
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
                 
-                .onAppear(perform: {
-                    playSound(sound: "Bell_Bgm", type: "mp3")
-
-                })
-                .zIndex(1.2)
-
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 390, y: 150)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.nextView.toggle()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    Watch2()
-                }
-                .zIndex(1.2)
+            }
+            .onAppear(perform: {
+                playSound(sound: "Bell_Bgm", type: "mp3")
+                
+            })
+            .offset(x: -400, y: -140)
+            .zIndex(1.2)
+            
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.nextView.toggle()
+            }) {
+                Image("next_view")
+                    .scaleEffect(0.4)
+            }
+            .fullScreenCover(isPresented: $nextView) {
+                Watch2()
+            }
+            .offset(x: 390, y: 150)
+            .zIndex(1.2)
             
             VideoPlayer()
                 .scaleEffect(1.1)
-            
-//            Button(action: {
-//                self.homeView.toggle()
-//            }) {
-//                Image("home_view")
-//                
-//            }
-//            .fullScreenCover(isPresented: $homeView) {
-//                MainView()
-//                
-//            }
         }
 
     }
 }
 
 
-struct VideoPlayer: UIViewRepresentable {
-//    @Binding var isPlaying: Bool
-    
+struct VideoPlayer: UIViewRepresentable {    
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayer>) {
     }
     

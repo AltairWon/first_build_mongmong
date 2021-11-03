@@ -19,35 +19,38 @@ struct Watch_Video2: View {
                 .ignoresSafeArea()
             
             //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -400, y: -140)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.homeView.toggle()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
-                .onAppear(perform: {
-                    playSound(sound: "Rain_Bgm", type: "mp3")
-
-                })
-                .zIndex(1.2)
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.homeView.toggle()
+            }) {
+                Image("home_view")
+                    .scaleEffect(0.3)
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
+                
+            }
+            .onAppear(perform: {
+                playSound(sound: "Rain_Bgm", type: "mp3")
+                
+            })
+            .offset(x: -400, y: -140)
+            .zIndex(1.2)
             
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 390, y: 150)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.nextView.toggle()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    Watch3()
-                }
-                .zIndex(1.2)
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.nextView.toggle()
+            }) {
+                Image("next_view")
+                    .scaleEffect(0.4)
+            }
+            .fullScreenCover(isPresented: $nextView) {
+                Watch3()
+            }
+            .offset(x: 390, y: 150)
+            .zIndex(1.2)
             
             VideoPlayer2()
                 .scaleEffect(x: 1.1, y: 1.1)

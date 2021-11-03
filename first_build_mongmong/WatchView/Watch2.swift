@@ -70,42 +70,39 @@ struct Watch2: View {
                     .zIndex(0.2)
             }
             
-            Group {
-                //Main page and next page button
+            //Main page and next page button
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.homeView.toggle()
+            }) {
                 Image("home_view")
                     .scaleEffect(0.3)
-                    .offset(x: -400, y: -140)
-                    
-                    //tap to go back to main page and stop the music
-                    .onTapGesture {
-                        playSound2(sound: "Click", type: "mp3")
-                        self.homeView.toggle()
-                        audioPlayer?.stop()
-                    }
-                    .fullScreenCover(isPresented: $homeView) {
-                        MainView()
-                    }
-                    
-                    //set the background music
-                    .onAppear(perform: {
-                        playSound(sound: "Bird", type: "mp3")
-                    })
-                    .zIndex(1.2)
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
                 
+            }
+            .onAppear(perform: {
+                playSound(sound: "Bird", type: "mp3")
+                
+            })
+            .offset(x: -400, y: -140)
+            .zIndex(1.2)
+            
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.nextView.toggle()
+            }) {
                 Image("next_view")
                     .scaleEffect(0.4)
-                    .offset(x: 390, y: 150)
-                    .onTapGesture {
-                        playSound2(sound: "Click", type: "mp3")
-                        self.nextView.toggle()
-                        audioPlayer?.stop()
-                    }
-                    .fullScreenCover(isPresented: $nextView) {
-                        Watch_Video2()
-                    }
-                    
-                    .zIndex(1.2)
             }
+            .fullScreenCover(isPresented: $nextView) {
+                Watch_Video2()
+            }
+            .offset(x: 390, y: 150)
+            .zIndex(1.2)
             
             // Main clock
             Image("watch2_hour")

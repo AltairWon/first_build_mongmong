@@ -20,48 +20,45 @@ struct Watch_Video5: View {
                 .ignoresSafeArea()
             
             //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -400, y: -140)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.homeView.toggle()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
-                .onAppear(perform: {
-                    playSound(sound: "Wave_Bgm", type: "mp3")
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.homeView.toggle()
+            }) {
+                Image("home_view")
+                    .scaleEffect(0.3)
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
+                
+            }
+            .onAppear(perform: {
+                playSound(sound: "Water_Fall_Bgm", type: "mp3")
+                
+            })
+            .offset(x: -400, y: -140)
+            .zIndex(1.2)
+  
+            //Button for next view
+            //If you have another view, you will use it
+            
+//            Button(action: {
+//                playSound2(sound: "Click", type: "mp3")
+//                audioPlayer?.stop()
+//                self.nextView.toggle()
+//            }) {
+//                Image("next_view")
+//                    .scaleEffect(0.4)
+//            }
+//            .fullScreenCover(isPresented: $nextView) {
+//                Watch2()
+//            }
+//            .offset(x: 390, y: 150)
+//            .zIndex(1.2)
 
-                })
-                .zIndex(1.2)
-
-//            Image("next_view")
-//                .scaleEffect(0.4)
-//                .offset(x: 360, y: 150)
-//                .onTapGesture {
-//                    audioPlayer?.stop()
-//                    playSound2(sound: "Click", type: "mp3")
-//                    self.nextView.toggle()
-//                }
-//                .fullScreenCover(isPresented: $nextView) {
-//                }
-//                .zIndex(1.2)
             
             VideoPlayer5()
                 .scaleEffect(1.1)
-            
-//            Button(action: {
-//                self.homeView.toggle()
-//            }) {
-//                Image("home_view")
-//
-//            }
-//            .fullScreenCover(isPresented: $homeView) {
-//                MainView()
-//
-//            }
         }
 
     }

@@ -51,37 +51,39 @@ struct Watch3: View {
     var body: some View {
         ZStack {
             //Main page and next page button
-            Image("home_view")
-                .scaleEffect(0.3)
-                .offset(x: -400, y: -140)
-                .onTapGesture {
-                    playSound2(sound: "Click", type: "mp3")
-                    self.homeView.toggle()
-                    audioPlayer?.stop()
-                }
-                .fullScreenCover(isPresented: $homeView) {
-                    MainView()
-                }
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.homeView.toggle()
+            }) {
+                Image("home_view")
+                    .scaleEffect(0.3)
+            }
+            .fullScreenCover(isPresented: $homeView) {
+                MainView()
                 
-                //set the background music
-                .onAppear(perform: {
-                    playSound(sound: "Surfing", type: "mp3")
-                })
-                .zIndex(1.2)
-
-            Image("next_view")
-                .scaleEffect(0.4)
-                .offset(x: 390, y: 150)
-                .onTapGesture {
-                    audioPlayer?.stop()
-                    playSound2(sound: "Click", type: "mp3")
-                    self.nextView.toggle()
-                }
-                .fullScreenCover(isPresented: $nextView) {
-                    //set the next watch view
-                    Watch_Video3()
-                }
-                .zIndex(1.2)
+            }
+            .onAppear(perform: {
+                playSound(sound: "Surfing", type: "mp3")
+                
+            })
+            .offset(x: -400, y: -140)
+            .zIndex(1.2)
+            
+            Button(action: {
+                playSound2(sound: "Click", type: "mp3")
+                audioPlayer?.stop()
+                self.nextView.toggle()
+            }) {
+                Image("next_view")
+                    .scaleEffect(0.4)
+            }
+            .fullScreenCover(isPresented: $nextView) {
+                Watch_Video3()
+            }
+            .offset(x: 390, y: 150)
+            .zIndex(1.2)
+            
             Group{
                 // Main clock
                 Image("watch3_background")

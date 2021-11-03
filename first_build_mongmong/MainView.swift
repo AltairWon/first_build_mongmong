@@ -38,6 +38,7 @@ struct MainView: View {
                 //icon Image
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(){
+                        Spacer(minLength: 13)
                         Button(action: {
                             self.watch1.toggle()
                         }) {
@@ -61,6 +62,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch_video1) {
                             Watch_Video1()
                         }
+                        .padding(.horizontal, -8)
                         .zIndex(1)
                         
                         Button(action: {
@@ -74,6 +76,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch2) {
                             Watch2()
                         }
+                        .padding(.horizontal, -8)
                         .zIndex(1)
                         
                         Button(action: {
@@ -87,7 +90,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch_video2) {
                             Watch_Video2()
                         }
-                        
+                        .padding(.horizontal, -8)
                         .zIndex(1)
                         
                         Button(action: {
@@ -102,8 +105,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch3) {
                             Watch3()
                         }
-                        .padding(.horizontal, 8)
-                        
+                        .padding(.horizontal, -2)
                         .zIndex(1)
                         
                         Button(action: {
@@ -119,7 +121,6 @@ struct MainView: View {
                             Watch_Video3()
                         }
                         .padding(.horizontal, -8)
-                        
                         .zIndex(1)
                         
                         Button(action: {
@@ -134,6 +135,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch_video4) {
                             Watch_Video4()
                         }
+                        .padding(.horizontal, -12)
                         .zIndex(1)
                         
                         Button(action: {
@@ -148,6 +150,7 @@ struct MainView: View {
                         .fullScreenCover(isPresented: $watch_video5) {
                             Watch_Video5()
                         }
+                        .padding(.horizontal, -8)
                         .zIndex(1)
                         
                         Button(action: {
@@ -161,6 +164,7 @@ struct MainView: View {
                         .alert(isPresented: $showingAlert) {
                             Alert(title: Text("MongMong"), message: Text("We will update soon"), dismissButton: .default(Text("OK")))
                         }
+                        .padding(.horizontal, -3)
                         .zIndex(1)
                     }
                 }
@@ -168,16 +172,15 @@ struct MainView: View {
                 Image("volume_background")
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geo.size.width * 1.1)
-                    .offset(x: geo.size.height * 0.846, y: 7)
-                    .scaleEffect(1.08)
-                    //                    .offset(x: iconX+660, y: 6.5)
+                    .offset(x: geo.size.height * 0.83, y: 7)
+                    .scaleEffect(1.1)
                     .zIndex(1)
                 
                 VolumeSlider()
                     .aspectRatio(contentMode: .fit)
                     //                    .scaleEffect(x: 0.36, y: 1.1)
                     .frame(height: geo.size.height * 0.8)
-                    .offset(x: -50, y: geo.size.height * 2.01)
+                    .offset(x: -50, y: geo.size.height * 2.025)
                     .rotationEffect(.degrees(-90))
                     .zIndex(1)
             }
