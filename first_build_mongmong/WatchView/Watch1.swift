@@ -66,7 +66,7 @@ struct Watch1: View {
                 
             }
             .onAppear(perform: {
-                playSound(sound: "Ocean", type: "mp3")
+                playSound(sound: "ocean", type: "mp3")
                 
             })
             .offset(x: -350, y: -140)
