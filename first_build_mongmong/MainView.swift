@@ -207,7 +207,7 @@ struct MainView: View {
                 Image("volume_background")
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geo.size.width * 1.1)
-                    .offset(x: geo.size.height * 0.83, y: -3)
+                    .offset(x: geo.size.height * 0.83, y: 7)
                     .scaleEffect(1.1)
                     .zIndex(1)
                 
